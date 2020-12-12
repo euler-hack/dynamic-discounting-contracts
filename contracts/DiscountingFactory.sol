@@ -16,130 +16,89 @@ pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
-import "./IDiscountingFactory.sol";
-import "./DiscountingTypes.sol";
 import "./DiscountingContract.sol";
+import "./IDiscountingFactory.sol";
 
 
-contract DiscountingFactory is DiscountingTypes, Ownable {
+contract DiscountingFactory is IDiscountingFactory, Ownable {
 
     using SafeMath for uint256;
-
-    enum Side {BUY, SELL}
-
-    struct P2POrder {
-        uint256 id;
-        address initiator;
-        Side ordeSide;
-        address target;
-        string description;
-        ContractRule rule;
-        DiscountingContract signedContract;
-    }
-
-
-
-    // struct AuctionOrder {
-    //     uint256 id;
-    //     address initiator;
-    //     Side ordeSide;
-    //     string description;
-    //     Participant supplier;
-    //     Participant[] buyers;
-    // }
-
-    // struct AuctionBuyOrder {
-    //     uint256 id;
-    //     address initiator;
-    //     string description;
-    //     Participant buyer;
-    //     Participant[] suppliers;
-    // }
-
 
     //
     // Storage
     //
 
     DiscountingContract[] public contracts;
-    P2POrder[] public p2pOrders;
+    AuctionOrder[] public auctionOrders;
 
     //
     // Events
     //
 
-    event CreatedP2POrder(uint256 _id, address indexed _from, Side indexed _side, address indexed _to, uint256 _timestamp);
-    event AcceptedP2POrder(uint256 _id, address indexed _from, Side indexed _side, address indexed _to, uint256 _timestamp);
+    event CreatedAuctionOrder(uint256 _id, address indexed _buyer, uint256 _hasAmount, uint256 _minPercent, uint256 _timestamp);
+    event RespondAuctionOrder(uint256 _id, address indexed _responder, uint256 _timestamp);
 
     //
     // External methods
     //
 
-    function createP2POrder(
-        Side _side,
-        address _to,
-        string memory _description,
-        ContractRule memory _rule
-    ) external returns(uint256) {
-        require(_to != msg.sender, "DiscountingFactory: wrong _to parameter");
-        // <-- TODO check _rule
+    function createAuctionOrder(uint256 _hasAmount, uint256 _minPercent) external override returns(uint256) {
+        require(_hasAmount != 0, "DiscountingFactory: wrong _hasAmount parameter");
 
-        P2POrder memory newOrder = P2POrder({
-            id: p2pOrders.length,
-            initiator: msg.sender,
-            ordeSide: _side,
-            target: _to,
-            description: _description,
-            rule: _rule,
-            signedContract: DiscountingContract(address(0))
-        });
+        // uint256 newOrderId = auctionOrders.length;
+        // AuctionOrder memory newAuctionOrder = AuctionOrder({
+        //     id: newOrderId,
+        //     buyer: msg.sender,
+        //     hasAmount: _hasAmount,
+        //     minPercent: _minPercent,
+        //     suppliers: new Supplier[](0),
+        //     signedContract: address(0)
+        // });
 
-        p2pOrders.push(newOrder);
-        uint newOrderId = p2pOrders.length.sub(1);
+        // auctionOrders.push(newAuctionOrder);
 
-        emit CreatedP2POrder(newOrderId, msg.sender, _side, _to, block.timestamp);
+        // emit CreatedAuctionOrder(newOrderId, msg.sender, _hasAmount, _minPercent, block.timestamp);
 
-        return newOrderId;
+        return 1;
     }
 
-    function acceptP2POrder(uint256 _orderId) external returns(address) {
-        require(p2pOrders[_orderId].target == msg.sender, "DiscountingFactory: wrong target");
-        require(address(p2pOrders[_orderId].signedContract) == address(0), "DiscountingFactory: p2p-order already accepted");
-        
-        address payable buyer;
-        address payable supplier;
-        if (p2pOrders[_orderId].ordeSide == Side.BUY) {
-            buyer = payable(p2pOrders[_orderId].initiator);
-            supplier = payable(p2pOrders[_orderId].target);
-        } else {
-            buyer = payable(p2pOrders[_orderId].target);
-            supplier = payable(p2pOrders[_orderId].initiator);
-        }
-        DiscountingContract newContract = new DiscountingContract(
-            buyer,
-            supplier,
-            p2pOrders[_orderId].description,
-            p2pOrders[_orderId].rule
-        );
+    function respondAuctionOrder(uint256 _orderId) external override returns(bool) {
 
-        contracts.push(newContract);
-        p2pOrders[_orderId].signedContract = newContract;
+        emit RespondAuctionOrder(_orderId, msg.sender, block.timestamp);
 
-        emit AcceptedP2POrder(_orderId, msg.sender, p2pOrders[_orderId].ordeSide, p2pOrders[_orderId].target, block.timestamp);
-
-        return address(newContract);
+        return true;
     }
 
-    function getOrderDetails(uint256 _orderId) external view returns(P2POrder memory) {
-        return(p2pOrders[_orderId]);
+    function executeAuctionOrder(uint256 _orderId) external override returns(address) {
+        return address(0);
     }
 
-    function getOrderDetailsList(uint256[] memory _orderIds) external view returns(P2POrder[] memory) {
-        P2POrder[] memory result = new P2POrder[](_orderIds.length);
+    function getOrderDetails(uint256 _orderId) external view override returns(AuctionOrder memory) {
+        return(auctionOrders[_orderId]);
+    }
+
+    function getContractDetails(address _contractAddress) external view override returns(ContractRule memory) {
+        return(ContractRule(123, 123));
+    }
+
+    //
+    // no gas control methods
+    //
+
+    function getOrderDetailsList(uint256[] memory _orderIds) external view override returns(AuctionOrder[] memory) {
+        AuctionOrder[] memory result = new AuctionOrder[](_orderIds.length);
         for (uint256 i = 0; i < _orderIds.length; i++) {
-            result[i] = p2pOrders[_orderIds[i]];
+            result[i] = auctionOrders[_orderIds[i]];
         }
         return result;
+    }
+
+    function getContractDetailsList(address[] memory _contractAddresses) external view override returns(ContractRule[] memory) {
+        return new ContractRule[](0);
+    }
+
+    function getOpenedOrders() external view override returns(AuctionOrder[] memory) {
+        return new AuctionOrder[](0);
     }
 
 }

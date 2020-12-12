@@ -1,27 +1,27 @@
 {
   "contractName": "DiscountingTypes",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":\"DiscountingTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0xa7b59cc188e14f1e6bfcdd641c93c71bddeb0ae613b944a5a7563acd30fc9896\",\"urls\":[\"bzz-raw://a90f5221ba1daab5bd31014716c3270f63e7dbae63b6e7c76cc2528a0c59153d\",\"dweb:/ipfs/QmbVSb1RU66m9o7WqG3LubQzFbZJHuHuGHYGYwxNNubzLY\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":\"DiscountingTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x13a34921df11975fddd411b015f0fbd739e9c03af05206b7d7c226966a398b35\",\"urls\":[\"bzz-raw://b4ca31030b2ca0e2376c6bea1ec04ba61207212baf05e494cd4542419b746f56\",\"dweb:/ipfs/QmT78xoffEDHvXnvFAjnwybbV4ULb4mcFG3YsNxSUVNyok\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\ninterface DiscountingTypes {\n\n    struct ContractRule {\n        uint256 amount;\n        uint256 discount;\n    }\n}\n\n",
+  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\ninterface DiscountingTypes {\n\n    struct ContractRule {\n        uint256 amount;\n        uint256 discount;\n    }\n\n    struct Supplier {\n        address supplierAddress;\n        address needAmount;\n    }\n\n    struct AuctionOrder {\n        uint256 id;\n        address buyer;\n        uint256 hasAmount;\n        uint256 minPercent;\n        Supplier[] suppliers;\n        address signedContract;\n    }\n\n}\n\n",
   "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
   "ast": {
     "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
     "exportedSymbols": {
       "DiscountingTypes": [
-        553
+        246
       ]
     },
-    "id": 554,
+    "id": 247,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 546,
+        "id": 220,
         "literals": [
           "solidity",
           "^",
@@ -32,7 +32,7 @@
         "src": "0:24:2"
       },
       {
-        "id": 547,
+        "id": 221,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -47,25 +47,25 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 553,
+        "id": 246,
         "linearizedBaseContracts": [
-          553
+          246
         ],
         "name": "DiscountingTypes",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "DiscountingTypes.ContractRule",
-            "id": 552,
+            "id": 226,
             "members": [
               {
                 "constant": false,
-                "id": 549,
+                "id": 223,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 552,
+                "scope": 226,
                 "src": "124:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -74,7 +74,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 548,
+                  "id": 222,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "124:7:2",
@@ -88,12 +88,12 @@
               },
               {
                 "constant": false,
-                "id": 551,
+                "id": 225,
                 "mutability": "mutable",
                 "name": "discount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 552,
+                "scope": 226,
                 "src": "148:16:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -102,7 +102,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 550,
+                  "id": 224,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "148:7:2",
@@ -117,30 +117,292 @@
             ],
             "name": "ContractRule",
             "nodeType": "StructDefinition",
-            "scope": 553,
+            "scope": 246,
             "src": "94:77:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "DiscountingTypes.Supplier",
+            "id": 231,
+            "members": [
+              {
+                "constant": false,
+                "id": 228,
+                "mutability": "mutable",
+                "name": "supplierAddress",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 231,
+                "src": "203:23:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 227,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "203:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 230,
+                "mutability": "mutable",
+                "name": "needAmount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 231,
+                "src": "236:18:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 229,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "236:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Supplier",
+            "nodeType": "StructDefinition",
+            "scope": 246,
+            "src": "177:84:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "DiscountingTypes.AuctionOrder",
+            "id": 245,
+            "members": [
+              {
+                "constant": false,
+                "id": 233,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "297:10:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 232,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "297:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 235,
+                "mutability": "mutable",
+                "name": "buyer",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "317:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 234,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "317:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 237,
+                "mutability": "mutable",
+                "name": "hasAmount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "340:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 236,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "340:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 239,
+                "mutability": "mutable",
+                "name": "minPercent",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "367:18:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 238,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "367:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "mutability": "mutable",
+                "name": "suppliers",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "395:20:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Supplier_$231_storage_$dyn_storage_ptr",
+                  "typeString": "struct DiscountingTypes.Supplier[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 240,
+                    "name": "Supplier",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 231,
+                    "src": "395:8:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Supplier_$231_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier"
+                    }
+                  },
+                  "id": 241,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "395:10:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$231_storage_$dyn_storage_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 244,
+                "mutability": "mutable",
+                "name": "signedContract",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "425:22:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 243,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "425:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "AuctionOrder",
+            "nodeType": "StructDefinition",
+            "scope": 246,
+            "src": "267:187:2",
             "visibility": "public"
           }
         ],
-        "scope": 554,
-        "src": "60:113:2"
+        "scope": 247,
+        "src": "60:397:2"
       }
     ],
-    "src": "0:175:2"
+    "src": "0:459:2"
   },
   "legacyAST": {
     "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
     "exportedSymbols": {
       "DiscountingTypes": [
-        553
+        246
       ]
     },
-    "id": 554,
+    "id": 247,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 546,
+        "id": 220,
         "literals": [
           "solidity",
           "^",
@@ -151,7 +413,7 @@
         "src": "0:24:2"
       },
       {
-        "id": 547,
+        "id": 221,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -166,25 +428,25 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 553,
+        "id": 246,
         "linearizedBaseContracts": [
-          553
+          246
         ],
         "name": "DiscountingTypes",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "DiscountingTypes.ContractRule",
-            "id": 552,
+            "id": 226,
             "members": [
               {
                 "constant": false,
-                "id": 549,
+                "id": 223,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 552,
+                "scope": 226,
                 "src": "124:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -193,7 +455,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 548,
+                  "id": 222,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "124:7:2",
@@ -207,12 +469,12 @@
               },
               {
                 "constant": false,
-                "id": 551,
+                "id": 225,
                 "mutability": "mutable",
                 "name": "discount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 552,
+                "scope": 226,
                 "src": "148:16:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -221,7 +483,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 550,
+                  "id": 224,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "148:7:2",
@@ -236,16 +498,278 @@
             ],
             "name": "ContractRule",
             "nodeType": "StructDefinition",
-            "scope": 553,
+            "scope": 246,
             "src": "94:77:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "DiscountingTypes.Supplier",
+            "id": 231,
+            "members": [
+              {
+                "constant": false,
+                "id": 228,
+                "mutability": "mutable",
+                "name": "supplierAddress",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 231,
+                "src": "203:23:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 227,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "203:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 230,
+                "mutability": "mutable",
+                "name": "needAmount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 231,
+                "src": "236:18:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 229,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "236:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Supplier",
+            "nodeType": "StructDefinition",
+            "scope": 246,
+            "src": "177:84:2",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "DiscountingTypes.AuctionOrder",
+            "id": 245,
+            "members": [
+              {
+                "constant": false,
+                "id": 233,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "297:10:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 232,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "297:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 235,
+                "mutability": "mutable",
+                "name": "buyer",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "317:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 234,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "317:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 237,
+                "mutability": "mutable",
+                "name": "hasAmount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "340:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 236,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "340:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 239,
+                "mutability": "mutable",
+                "name": "minPercent",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "367:18:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 238,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "367:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 242,
+                "mutability": "mutable",
+                "name": "suppliers",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "395:20:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Supplier_$231_storage_$dyn_storage_ptr",
+                  "typeString": "struct DiscountingTypes.Supplier[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 240,
+                    "name": "Supplier",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 231,
+                    "src": "395:8:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Supplier_$231_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier"
+                    }
+                  },
+                  "id": 241,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "395:10:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$231_storage_$dyn_storage_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 244,
+                "mutability": "mutable",
+                "name": "signedContract",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 245,
+                "src": "425:22:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 243,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "425:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "AuctionOrder",
+            "nodeType": "StructDefinition",
+            "scope": 246,
+            "src": "267:187:2",
             "visibility": "public"
           }
         ],
-        "scope": 554,
-        "src": "60:113:2"
+        "scope": 247,
+        "src": "60:397:2"
       }
     ],
-    "src": "0:175:2"
+    "src": "0:459:2"
   },
   "compiler": {
     "name": "solc",
@@ -253,7 +777,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-12T11:29:27.696Z",
+  "updatedAt": "2020-12-12T16:36:52.447Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

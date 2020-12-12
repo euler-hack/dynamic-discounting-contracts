@@ -1,6 +1,11 @@
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.6.12;
+pragma experimental ABIEncoderV2;
 
-interface IDiscountingContract {
+import "./DiscountingTypes.sol";
+
+interface IDiscountingContract is DiscountingTypes {
+
+    function getContractRule() external view returns(ContractRule memory);
+
 }
+
