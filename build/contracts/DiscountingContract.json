@@ -27,9 +27,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getContractRule\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":\"DiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":{\"keccak256\":\"0x1cb5fb450723fd1849a450b2821af1b8f0a1446aea611b732cc971ed4b0886a5\",\"urls\":[\"bzz-raw://0ca860551557f48cb0390bc56fdb2dbce25f6a3431986679da0fdb6131063b28\",\"dweb:/ipfs/QmU6ikrNckPsoVCVQMu3Ees7adaEQuqXQ7A5jqMnL7d7qP\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x13a34921df11975fddd411b015f0fbd739e9c03af05206b7d7c226966a398b35\",\"urls\":[\"bzz-raw://b4ca31030b2ca0e2376c6bea1ec04ba61207212baf05e494cd4542419b746f56\",\"dweb:/ipfs/QmT78xoffEDHvXnvFAjnwybbV4ULb4mcFG3YsNxSUVNyok\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060cc8061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063b54f14a414602d575b600080fd5b60336047565b604051603e9190607f565b60405180910390f35b604d6065565b5060408051808201909152607b808252602082015290565b604051806040016040528060008152602001600081525090565b81518152602091820151918101919091526040019056fea26469706673582212202c01326f2555347d61035ebe0d30ae6eca818a017c56eddcd5845d79e82e948664736f6c634300060c0033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063b54f14a414602d575b600080fd5b60336047565b604051603e9190607f565b60405180910390f35b604d6065565b5060408051808201909152607b808252602082015290565b604051806040016040528060008152602001600081525090565b81518152602091820151918101919091526040019056fea26469706673582212202c01326f2555347d61035ebe0d30ae6eca818a017c56eddcd5845d79e82e948664736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getContractRule\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":\"DiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":{\"keccak256\":\"0x1cb5fb450723fd1849a450b2821af1b8f0a1446aea611b732cc971ed4b0886a5\",\"urls\":[\"bzz-raw://0ca860551557f48cb0390bc56fdb2dbce25f6a3431986679da0fdb6131063b28\",\"dweb:/ipfs/QmU6ikrNckPsoVCVQMu3Ees7adaEQuqXQ7A5jqMnL7d7qP\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x7faf78da3ad2b6837852edbf2eb08b44619b7f8d135daa2d9dedace8a9accfc7\",\"urls\":[\"bzz-raw://f0985a2fd6c3ac445b932c9148585675a1487d9a1425fe2ede4d62149bacc5dc\",\"dweb:/ipfs/QmVN7fn3Qr5aFD34hFJd87M2iApotTpAW6GcseP3jHE5Zx\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060cc8061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063b54f14a414602d575b600080fd5b60336047565b604051603e9190607f565b60405180910390f35b604d6065565b5060408051808201909152607b808252602082015290565b604051806040016040528060008152602001600081525090565b81518152602091820151918101919091526040019056fea2646970667358221220aadab1574ac85f7e69d799565118c0847f40978eb26601c83556f928c0b0ae7e64736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063b54f14a414602d575b600080fd5b60336047565b604051603e9190607f565b60405180910390f35b604d6065565b5060408051808201909152607b808252602082015290565b604051806040016040528060008152602001600081525090565b81518152602091820151918101919091526040019056fea2646970667358221220aadab1574ac85f7e69d799565118c0847f40978eb26601c83556f928c0b0ae7e64736f6c634300060c0033",
   "immutableReferences": {},
   "sourceMap": "94:174:0:-:0;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "94:174:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;150:115;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;199:19;;:::i;:::-;-1:-1:-1;237:21:0;;;;;;;;;250:3;237:21;;;;;;;150:115;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;:::o;695:338::-;307:23;;646:37;;482:4;471:16;;;465:23;542:14;;;646:37;;;;880:2;865:18;;851:182::o",
@@ -72,7 +72,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 18,
-        "sourceUnit": 247,
+        "sourceUnit": 623,
         "src": "60:32:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -87,10 +87,10 @@
               "id": 4,
               "name": "DiscountingTypes",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 246,
+              "referencedDeclaration": 622,
               "src": "126:16:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$246",
+                "typeIdentifier": "t_contract$_DiscountingTypes_$622",
                 "typeString": "contract DiscountingTypes"
               }
             },
@@ -100,7 +100,7 @@
           }
         ],
         "contractDependencies": [
-          246
+          622
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -108,7 +108,7 @@
         "id": 17,
         "linearizedBaseContracts": [
           17,
-          246
+          622
         ],
         "name": "DiscountingContract",
         "nodeType": "ContractDefinition",
@@ -175,10 +175,10 @@
                       "name": "ContractRule",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 226,
+                      "referencedDeclaration": 603,
                       "src": "237:12:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_ContractRule_$226_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_ContractRule_$603_storage_ptr_$",
                         "typeString": "type(struct DiscountingTypes.ContractRule storage pointer)"
                       }
                     },
@@ -193,7 +193,7 @@
                     "src": "237:21:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$226_memory_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule memory"
                     }
                   },
@@ -235,7 +235,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ContractRule_$226_memory_ptr",
+                    "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
                     "typeString": "struct DiscountingTypes.ContractRule"
                   },
                   "typeName": {
@@ -243,10 +243,10 @@
                     "id": 7,
                     "name": "ContractRule",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 226,
+                    "referencedDeclaration": 603,
                     "src": "199:12:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$226_storage_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$603_storage_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule"
                     }
                   },
@@ -306,7 +306,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 18,
-        "sourceUnit": 247,
+        "sourceUnit": 623,
         "src": "60:32:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -321,10 +321,10 @@
               "id": 4,
               "name": "DiscountingTypes",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 246,
+              "referencedDeclaration": 622,
               "src": "126:16:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$246",
+                "typeIdentifier": "t_contract$_DiscountingTypes_$622",
                 "typeString": "contract DiscountingTypes"
               }
             },
@@ -334,7 +334,7 @@
           }
         ],
         "contractDependencies": [
-          246
+          622
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -342,7 +342,7 @@
         "id": 17,
         "linearizedBaseContracts": [
           17,
-          246
+          622
         ],
         "name": "DiscountingContract",
         "nodeType": "ContractDefinition",
@@ -409,10 +409,10 @@
                       "name": "ContractRule",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 226,
+                      "referencedDeclaration": 603,
                       "src": "237:12:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_ContractRule_$226_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_ContractRule_$603_storage_ptr_$",
                         "typeString": "type(struct DiscountingTypes.ContractRule storage pointer)"
                       }
                     },
@@ -427,7 +427,7 @@
                     "src": "237:21:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$226_memory_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule memory"
                     }
                   },
@@ -469,7 +469,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ContractRule_$226_memory_ptr",
+                    "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
                     "typeString": "struct DiscountingTypes.ContractRule"
                   },
                   "typeName": {
@@ -477,10 +477,10 @@
                     "id": 7,
                     "name": "ContractRule",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 226,
+                    "referencedDeclaration": 603,
                     "src": "199:12:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$226_storage_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$603_storage_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule"
                     }
                   },
@@ -509,7 +509,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-12T16:36:52.443Z",
+  "updatedAt": "2020-12-12T19:32:22.738Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

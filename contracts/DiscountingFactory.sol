@@ -29,76 +29,134 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
     //
 
     DiscountingContract[] public contracts;
-    AuctionOrder[] public auctionOrders;
+    Auction[] public auctions;
+    mapping(uint256 => Supplier[]) public auctionsSuppliers;
 
     //
     // Events
     //
 
-    event CreatedAuctionOrder(uint256 _id, address indexed _buyer, uint256 _hasAmount, uint256 _minPercent, uint256 _timestamp);
-    event RespondAuctionOrder(uint256 _id, address indexed _responder, uint256 _timestamp);
+    event CreatedAuction(uint256 indexed _id, address indexed _buyer, uint256 _hasAmount, uint256 _minPercent, uint256 _timestamp);
+    event RespondAuction(uint256 indexed _id, address indexed _responder, uint256 _discountPercent , uint256 _needAmount, uint256 _timestamp);
 
     //
     // External methods
     //
 
-    function createAuctionOrder(uint256 _hasAmount, uint256 _minPercent) external override returns(uint256) {
+    function createAuction(uint256 _hasAmount, uint256 _minPercent) external override returns(uint256) {
         require(_hasAmount != 0, "DiscountingFactory: wrong _hasAmount parameter");
 
-        // uint256 newOrderId = auctionOrders.length;
-        // AuctionOrder memory newAuctionOrder = AuctionOrder({
-        //     id: newOrderId,
-        //     buyer: msg.sender,
-        //     hasAmount: _hasAmount,
-        //     minPercent: _minPercent,
-        //     suppliers: new Supplier[](0),
-        //     signedContract: address(0)
-        // });
+        uint256 newId = auctions.length;
+        Auction memory newAuction = Auction({
+            id: newId,
+            buyer: msg.sender,
+            minPercent: _minPercent,
+            hasAmount: _hasAmount,
+            signedContract: address(0)
+        });
 
-        // auctionOrders.push(newAuctionOrder);
+        auctions.push(newAuction);
 
-        // emit CreatedAuctionOrder(newOrderId, msg.sender, _hasAmount, _minPercent, block.timestamp);
+        emit CreatedAuction(newId, msg.sender, _hasAmount, _minPercent, block.timestamp);
 
-        return 1;
+        return newId;
     }
 
-    function respondAuctionOrder(uint256 _orderId) external override returns(bool) {
+    function respondAuction(uint256 _id, uint256 _discountPercent , uint256 _needAmount) external override returns(bool) {
+        require(auctions[_id].buyer != msg.sender, "DiscountingFactory: wrong msg.sender");
+        require(auctions.length > _id, "DiscountingFactory: wrong _id parameter");
+        require(auctions[_id].minPercent <= _discountPercent, "DiscountingFactory: wrong _discountPercent parameter");
+        require(auctions[_id].hasAmount <= _needAmount, "DiscountingFactory: wrong _needAmount parameter");
+        require(auctions[_id].signedContract == address(0), "DiscountingFactory: auction is closed");
 
-        emit RespondAuctionOrder(_orderId, msg.sender, block.timestamp);
+        auctionsSuppliers[_id].push(Supplier({
+            supplierAddress: msg.sender,
+            discountPercent: _discountPercent,
+            needAmount: _needAmount
+        }));
+
+        emit RespondAuction(_id, msg.sender, _discountPercent, _needAmount, block.timestamp);
 
         return true;
     }
 
-    function executeAuctionOrder(uint256 _orderId) external override returns(address) {
-        return address(0);
+    function executeAuction(uint256 _id) external override returns(address) {
+        auctions[_id].signedContract = address(this);
+        return address(this);
     }
 
-    function getOrderDetails(uint256 _orderId) external view override returns(AuctionOrder memory) {
-        return(auctionOrders[_orderId]);
+    function getAuctionDetails(uint256 _id) external view override returns(Auction memory) {
+        return auctions[_id];
     }
 
     function getContractDetails(address _contractAddress) external view override returns(ContractRule memory) {
-        return(ContractRule(123, 123));
+        return ContractRule(123, 123);
     }
 
     //
     // no gas control methods
     //
 
-    function getOrderDetailsList(uint256[] memory _orderIds) external view override returns(AuctionOrder[] memory) {
-        AuctionOrder[] memory result = new AuctionOrder[](_orderIds.length);
-        for (uint256 i = 0; i < _orderIds.length; i++) {
-            result[i] = auctionOrders[_orderIds[i]];
+    function getAuctionSuppliers(uint256 _id) external view override returns(Supplier[] memory) {
+        Supplier[] memory result = new Supplier[](auctionsSuppliers[_id].length);
+        return result;
+    }
+
+    function getOtherOpenAuctions() external view override returns(uint256[] memory) {
+        uint256 counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].buyer != msg.sender && auctions[i].signedContract == address(0)) {
+                counter++;
+            }
+        }
+        
+        uint256[] memory result = new uint256[](counter);
+        counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].buyer != msg.sender && auctions[i].signedContract == address(0)) {
+                result[counter] = auctions[i].id;
+                counter++;
+            }
         }
         return result;
     }
 
-    function getContractDetailsList(address[] memory _contractAddresses) external view override returns(ContractRule[] memory) {
-        return new ContractRule[](0);
+    function getMyOpenAuctions() external view override returns(uint256[] memory) {
+        uint256 counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].buyer == msg.sender && auctions[i].signedContract == address(0)) {
+                counter++;
+            }
+        }
+        
+        uint256[] memory result = new uint256[](counter);
+        counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].buyer == msg.sender && auctions[i].signedContract == address(0)) {
+                result[counter] = auctions[i].id;
+                counter++;
+            }
+        }
+        return result;
     }
 
-    function getOpenedOrders() external view override returns(AuctionOrder[] memory) {
-        return new AuctionOrder[](0);
+    function getClosedAuctions() external view override returns(uint256[] memory) {
+        uint256 counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].signedContract != address(0)) {
+                counter++;
+            }
+        }
+        
+        uint256[] memory result = new uint256[](counter);
+        counter = 0;
+        for (uint256 i = 0; i < auctions.length; i++) {
+            if (auctions[i].signedContract != address(0)) {
+                result[counter] = auctions[i].id;
+                counter++;
+            }
+        }
+        return result;
     }
 
 }

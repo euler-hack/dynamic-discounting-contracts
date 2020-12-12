@@ -10,15 +10,15 @@ interface DiscountingTypes {
 
     struct Supplier {
         address supplierAddress;
-        address needAmount;
+        uint256 discountPercent;
+        uint256 needAmount;
     }
 
-    struct AuctionOrder {
+    struct Auction {
         uint256 id;
         address buyer;
-        uint256 hasAmount;
         uint256 minPercent;
-        Supplier[] suppliers;
+        uint256 hasAmount;
         address signedContract;
     }
 

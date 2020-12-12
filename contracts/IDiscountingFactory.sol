@@ -5,13 +5,13 @@ import "./DiscountingTypes.sol";
 
 interface IDiscountingFactory is DiscountingTypes {
 
-    function createAuctionOrder(uint256 _hasAmount, uint256 _minPercent) external returns(uint256);
+    function createAuction(uint256 _hasAmount, uint256 _minPercent) external returns(uint256);
 
-    function respondAuctionOrder(uint256 _orderId) external returns(bool);
+    function respondAuction(uint256 _id, uint256 _discountPercent , uint256 _needAmount) external returns(bool);
 
-    function executeAuctionOrder(uint256 _orderId) external returns(address);
+    function executeAuction(uint256 _id) external returns(address);
 
-    function getOrderDetails(uint256 _orderId) external view returns(AuctionOrder memory);
+    function getAuctionDetails(uint256 _id) external view returns(Auction memory);
 
     function getContractDetails(address _contractAddress) external view returns(ContractRule memory);
 
@@ -19,10 +19,12 @@ interface IDiscountingFactory is DiscountingTypes {
     // no gas control methods
     //
 
-    function getOrderDetailsList(uint256[] memory _orderIds) external view returns(AuctionOrder[] memory);
+    function getAuctionSuppliers(uint256 _id) external view returns(Supplier[] memory);
 
-    function getContractDetailsList(address[] memory _contractAddresses) external view returns(ContractRule[] memory);
+    function getOtherOpenAuctions() external view returns(uint256[] memory);
 
-    function getOpenedOrders() external view returns(AuctionOrder[] memory);
+    function getMyOpenAuctions() external view returns(uint256[] memory);
+
+    function getClosedAuctions() external view returns(uint256[] memory);
 
 }
