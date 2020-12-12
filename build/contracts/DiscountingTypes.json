@@ -1,0 +1,267 @@
+{
+  "contractName": "DiscountingTypes",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":\"DiscountingTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0xa7b59cc188e14f1e6bfcdd641c93c71bddeb0ae613b944a5a7563acd30fc9896\",\"urls\":[\"bzz-raw://a90f5221ba1daab5bd31014716c3270f63e7dbae63b6e7c76cc2528a0c59153d\",\"dweb:/ipfs/QmbVSb1RU66m9o7WqG3LubQzFbZJHuHuGHYGYwxNNubzLY\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\ninterface DiscountingTypes {\n\n    struct ContractRule {\n        uint256 amount;\n        uint256 discount;\n    }\n}\n\n",
+  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+  "ast": {
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+    "exportedSymbols": {
+      "DiscountingTypes": [
+        553
+      ]
+    },
+    "id": 554,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 546,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "id": 547,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 553,
+        "linearizedBaseContracts": [
+          553
+        ],
+        "name": "DiscountingTypes",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DiscountingTypes.ContractRule",
+            "id": 552,
+            "members": [
+              {
+                "constant": false,
+                "id": 549,
+                "mutability": "mutable",
+                "name": "amount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 552,
+                "src": "124:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 548,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "124:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 551,
+                "mutability": "mutable",
+                "name": "discount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 552,
+                "src": "148:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 550,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "148:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ContractRule",
+            "nodeType": "StructDefinition",
+            "scope": 553,
+            "src": "94:77:2",
+            "visibility": "public"
+          }
+        ],
+        "scope": 554,
+        "src": "60:113:2"
+      }
+    ],
+    "src": "0:175:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+    "exportedSymbols": {
+      "DiscountingTypes": [
+        553
+      ]
+    },
+    "id": 554,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 546,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "id": 547,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "25:33:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 553,
+        "linearizedBaseContracts": [
+          553
+        ],
+        "name": "DiscountingTypes",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DiscountingTypes.ContractRule",
+            "id": 552,
+            "members": [
+              {
+                "constant": false,
+                "id": 549,
+                "mutability": "mutable",
+                "name": "amount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 552,
+                "src": "124:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 548,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "124:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 551,
+                "mutability": "mutable",
+                "name": "discount",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 552,
+                "src": "148:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 550,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "148:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ContractRule",
+            "nodeType": "StructDefinition",
+            "scope": 553,
+            "src": "94:77:2",
+            "visibility": "public"
+          }
+        ],
+        "scope": 554,
+        "src": "60:113:2"
+      }
+    ],
+    "src": "0:175:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-12T11:29:27.696Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

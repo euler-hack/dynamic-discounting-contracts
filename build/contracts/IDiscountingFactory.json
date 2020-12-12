@@ -1,0 +1,113 @@
+{
+  "contractName": "IDiscountingFactory",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingFactory.sol\":\"IDiscountingFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingFactory.sol\":{\"keccak256\":\"0xfd48ab155a97019a635578c5e6ea17bc7fc573c3d49c48cc82da74c587d2f055\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4609ef873b0269f22daa6ed8c4cff92a2462aa2e70cca50b28b7223d5f103142\",\"dweb:/ipfs/Qmcf6oDnCcTYGA1wzmgKCmJtZpBUULGPAqMQHhpbkaYg8L\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.6.12;\n\ninterface IDiscountingFactory {\n\n    \n}",
+  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingFactory.sol",
+  "ast": {
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingFactory.sol",
+    "exportedSymbols": {
+      "IDiscountingFactory": [
+        559
+      ]
+    },
+    "id": 560,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 558,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 559,
+        "linearizedBaseContracts": [
+          559
+        ],
+        "name": "IDiscountingFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 560,
+        "src": "59:39:4"
+      }
+    ],
+    "src": "33:65:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingFactory.sol",
+    "exportedSymbols": {
+      "IDiscountingFactory": [
+        559
+      ]
+    },
+    "id": 560,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 558,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 559,
+        "linearizedBaseContracts": [
+          559
+        ],
+        "name": "IDiscountingFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 560,
+        "src": "59:39:4"
+      }
+    ],
+    "src": "33:65:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-12T11:31:46.393Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
