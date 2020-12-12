@@ -14,9 +14,105 @@
 pragma solidity ^0.6.12;
 pragma experimental ABIEncoderV2;
 
+import "@openzeppelin/contracts/math/SafeMath.sol";
 import "./IDiscountingContract.sol";
+import "./DiscountingTypes.sol";
 
 
-contract DiscountingContract is IDiscountingContract {
-    
+contract DiscountingContract is IDiscountingContract, DiscountingTypes {
+
+    using SafeMath for uint256;
+
+    enum Stage {
+        Initialization,
+        AwaitingSupply,
+        AwaitingPayment,
+        Closed
+    }
+
+    //
+    // Storage
+    //
+
+    address public immutable deployedBy;
+    address payable public immutable buyer;
+    address payable public immutable supplier;
+    string public description;
+    ContractRule public rule;
+
+    Stage public stage;
+
+    //
+    // Events
+    //
+
+    event ConfirmedSupply(address _by, uint256 _timestamp);
+    event ClosedContract(address _by, uint256 _timestamp);
+
+
+    //
+    // Modifiers
+    //
+
+    modifier atStage(Stage _stage) {
+        require(
+            stage == _stage,
+            "DiscountingContract: Function cannot be called at this time."
+        );
+        _;
+    }
+
+    //
+    // External methods
+    //
+
+
+    constructor(address payable _buyer, address payable _supplier, string memory _description, ContractRule memory _rule) public {
+        deployedBy = msg.sender;
+        buyer = _buyer;
+        supplier = _supplier;
+        description = _description;
+        rule = _rule;
+
+        stage = Stage.AwaitingSupply;
+    }
+
+    function confirmSupply() external atStage(Stage.AwaitingSupply) returns(bool) {
+        require(msg.sender == buyer);
+        stage = Stage.AwaitingPayment;
+
+        emit ConfirmedSupply(msg.sender, block.timestamp);
+
+        _closeContract();
+
+        return true;
+    }
+
+    function closeContract() external atStage(Stage.AwaitingPayment) returns(bool) {
+        require(address(this).balance >= rule.amount, "DiscountingContract: Contract balance error");
+        return _closeContract();
+    }
+
+    //
+    // Internal methods
+    //
+
+    function _closeContract() private returns(bool) {
+        if (address(this).balance < rule.amount) {
+            return false;
+        }
+
+        uint256 supplierFunds = rule.amount;
+        supplier.transfer(supplierFunds);
+
+        uint256 buyerResidual = address(this).balance.sub(rule.amount);
+        if (buyerResidual > 0) {
+            buyer.transfer(buyerResidual);
+        }
+
+        emit ClosedContract(msg.sender, block.timestamp);
+
+        return true;
+    }
 }
+

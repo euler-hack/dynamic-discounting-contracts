@@ -17,42 +17,129 @@ pragma experimental ABIEncoderV2;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "./IDiscountingFactory.sol";
+import "./DiscountingTypes.sol";
 import "./DiscountingContract.sol";
 
 
-contract DiscountingFactory is IDiscountingFactory, Ownable {
+contract DiscountingFactory is DiscountingTypes, Ownable {
 
     using SafeMath for uint256;
+
+    enum Side {BUY, SELL}
+
+    struct P2POrder {
+        uint256 id;
+        address initiator;
+        Side ordeSide;
+        address target;
+        string description;
+        ContractRule rule;
+        DiscountingContract signedContract;
+    }
+
+
+
+    // struct AuctionOrder {
+    //     uint256 id;
+    //     address initiator;
+    //     Side ordeSide;
+    //     string description;
+    //     Participant supplier;
+    //     Participant[] buyers;
+    // }
+
+    // struct AuctionBuyOrder {
+    //     uint256 id;
+    //     address initiator;
+    //     string description;
+    //     Participant buyer;
+    //     Participant[] suppliers;
+    // }
+
 
     //
     // Storage
     //
 
-    address[] public instances;
-    uint256 public value;
+    DiscountingContract[] public contracts;
+    P2POrder[] public p2pOrders;
 
     //
     // Events
     //
 
-    event TestEvent(uint256 newValue);
+    event CreatedP2POrder(uint256 _id, address indexed _from, Side indexed _side, address indexed _to, uint256 _timestamp);
+    event AcceptedP2POrder(uint256 _id, address indexed _from, Side indexed _side, address indexed _to, uint256 _timestamp);
 
     //
     // External methods
     //
 
-    function setValue(uint256 _newValue) external returns(bool) {
-        value = _newValue;
-        emit TestEvent(_newValue);
-        return true;
+    function createP2POrder(
+        Side _side,
+        address _to,
+        string memory _description,
+        ContractRule memory _rule
+    ) external returns(uint256) {
+        require(_to != msg.sender, "DiscountingFactory: wrong _to parameter");
+        // <-- TODO check _rule
+
+        P2POrder memory newOrder = P2POrder({
+            id: p2pOrders.length,
+            initiator: msg.sender,
+            ordeSide: _side,
+            target: _to,
+            description: _description,
+            rule: _rule,
+            signedContract: DiscountingContract(address(0))
+        });
+
+        p2pOrders.push(newOrder);
+        uint newOrderId = p2pOrders.length.sub(1);
+
+        emit CreatedP2POrder(newOrderId, msg.sender, _side, _to, block.timestamp);
+
+        return newOrderId;
     }
 
-    function getValue() external view returns(uint256) {
-        return value;
+    function acceptP2POrder(uint256 _orderId) external returns(address) {
+        require(p2pOrders[_orderId].target == msg.sender, "DiscountingFactory: wrong target");
+        require(address(p2pOrders[_orderId].signedContract) == address(0), "DiscountingFactory: p2p-order already accepted");
+        
+        address payable buyer;
+        address payable supplier;
+        if (p2pOrders[_orderId].ordeSide == Side.BUY) {
+            buyer = payable(p2pOrders[_orderId].initiator);
+            supplier = payable(p2pOrders[_orderId].target);
+        } else {
+            buyer = payable(p2pOrders[_orderId].target);
+            supplier = payable(p2pOrders[_orderId].initiator);
+        }
+        DiscountingContract newContract = new DiscountingContract(
+            buyer,
+            supplier,
+            p2pOrders[_orderId].description,
+            p2pOrders[_orderId].rule
+        );
+
+        contracts.push(newContract);
+        p2pOrders[_orderId].signedContract = newContract;
+
+        emit AcceptedP2POrder(_orderId, msg.sender, p2pOrders[_orderId].ordeSide, p2pOrders[_orderId].target, block.timestamp);
+
+        return address(newContract);
     }
 
-    //
-    // Internal methods
-    //
+    function getOrderDetails(uint256 _orderId) external view returns(P2POrder memory) {
+        return(p2pOrders[_orderId]);
+    }
+
+    function getOrderDetailsList(uint256[] memory _orderIds) external view returns(P2POrder[] memory) {
+        P2POrder[] memory result = new P2POrder[](_orderIds.length);
+        for (uint256 i = 0; i < _orderIds.length; i++) {
+            result[i] = p2pOrders[_orderIds[i]];
+        }
+        return result;
+    }
 
 }
