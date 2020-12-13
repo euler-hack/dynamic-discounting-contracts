@@ -3,16 +3,10 @@ pragma experimental ABIEncoderV2;
 
 interface DiscountingTypes {
 
-    struct ContractRule {
-        address partner;
-        uint256 amount;
-        uint256 discount;
-    }
-
     struct Supplier {
         address supplierAddress;
-        uint256 discountPercent;
         uint256 needAmount;
+        uint256 discountPercent;
     }
 
     struct Auction {

@@ -1,27 +1,27 @@
 {
   "contractName": "DiscountingTypes",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":\"DiscountingTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x6a7572a5df94ca2dd334f7c5ac80ee52f3998796b680367ac7daba186384473e\",\"urls\":[\"bzz-raw://6bca329079241c5ff6af7e614458f28d6f87291cf68c8c6abc914dda6d95111b\",\"dweb:/ipfs/QmTCCiPinHGuzJ2CaYdhGZ3XA53sTKnxWdMws5CpxQL2am\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol\":\"DiscountingTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol\":{\"keccak256\":\"0x81fa6eaebf40a621317010acf4860aedef20db1ec202036bf3e9a6e636db9927\",\"urls\":[\"bzz-raw://481756d4f503c9d45b07e921282bb1e657c16448d3254fa8779b37d3ac15dcd4\",\"dweb:/ipfs/QmSawU41kUgm7gn4FvTJZ4yCvsT8juGVqwLjBQXZirZqrH\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\ninterface DiscountingTypes {\n\n    struct ContractRule {\n        address partner;\n        uint256 amount;\n        uint256 discount;\n    }\n\n    struct Supplier {\n        address supplierAddress;\n        uint256 discountPercent;\n        uint256 needAmount;\n    }\n\n    struct Auction {\n        uint256 id;\n        address buyer;\n        uint256 minPercent;\n        uint256 hasAmount;\n        address signedContract;\n    }\n\n}\n\n",
-  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\ninterface DiscountingTypes {\n\n    struct Supplier {\n        address supplierAddress;\n        uint256 needAmount;\n        uint256 discountPercent;\n    }\n\n    struct Auction {\n        uint256 id;\n        address buyer;\n        uint256 minPercent;\n        uint256 hasAmount;\n        address signedContract;\n    }\n\n}\n\n",
+  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol",
   "ast": {
-    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol",
     "exportedSymbols": {
       "DiscountingTypes": [
-        752
+        1059
       ]
     },
-    "id": 753,
+    "id": 1060,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 725,
+        "id": 1039,
         "literals": [
           "solidity",
           "^",
@@ -32,7 +32,7 @@
         "src": "0:24:2"
       },
       {
-        "id": 726,
+        "id": 1040,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -47,122 +47,26 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 752,
+        "id": 1059,
         "linearizedBaseContracts": [
-          752
+          1059
         ],
         "name": "DiscountingTypes",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "canonicalName": "DiscountingTypes.ContractRule",
-            "id": 733,
-            "members": [
-              {
-                "constant": false,
-                "id": 728,
-                "mutability": "mutable",
-                "name": "partner",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "124:15:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 727,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "124:7:2",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 730,
-                "mutability": "mutable",
-                "name": "amount",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "149:14:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 729,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "149:7:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 732,
-                "mutability": "mutable",
-                "name": "discount",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "173:16:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 731,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "173:7:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              }
-            ],
-            "name": "ContractRule",
-            "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "94:102:2",
-            "visibility": "public"
-          },
-          {
             "canonicalName": "DiscountingTypes.Supplier",
-            "id": 740,
+            "id": 1047,
             "members": [
               {
                 "constant": false,
-                "id": 735,
+                "id": 1042,
                 "mutability": "mutable",
                 "name": "supplierAddress",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "228:23:2",
+                "scope": 1047,
+                "src": "120:23:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -170,10 +74,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 734,
+                  "id": 1041,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "228:7:2",
+                  "src": "120:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -185,13 +89,13 @@
               },
               {
                 "constant": false,
-                "id": 737,
+                "id": 1044,
                 "mutability": "mutable",
-                "name": "discountPercent",
+                "name": "needAmount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "261:23:2",
+                "scope": 1047,
+                "src": "153:18:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -199,10 +103,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 736,
+                  "id": 1043,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "261:7:2",
+                  "src": "153:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -213,13 +117,13 @@
               },
               {
                 "constant": false,
-                "id": 739,
+                "id": 1046,
                 "mutability": "mutable",
-                "name": "needAmount",
+                "name": "discountPercent",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "294:18:2",
+                "scope": 1047,
+                "src": "181:23:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -227,10 +131,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 738,
+                  "id": 1045,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "294:7:2",
+                  "src": "181:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -242,23 +146,23 @@
             ],
             "name": "Supplier",
             "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "202:117:2",
+            "scope": 1059,
+            "src": "94:117:2",
             "visibility": "public"
           },
           {
             "canonicalName": "DiscountingTypes.Auction",
-            "id": 751,
+            "id": 1058,
             "members": [
               {
                 "constant": false,
-                "id": 742,
+                "id": 1049,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "350:10:2",
+                "scope": 1058,
+                "src": "242:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -266,10 +170,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 741,
+                  "id": 1048,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "350:7:2",
+                  "src": "242:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -280,13 +184,13 @@
               },
               {
                 "constant": false,
-                "id": 744,
+                "id": 1051,
                 "mutability": "mutable",
                 "name": "buyer",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "370:13:2",
+                "scope": 1058,
+                "src": "262:13:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -294,10 +198,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 743,
+                  "id": 1050,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "370:7:2",
+                  "src": "262:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -309,13 +213,13 @@
               },
               {
                 "constant": false,
-                "id": 746,
+                "id": 1053,
                 "mutability": "mutable",
                 "name": "minPercent",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "393:18:2",
+                "scope": 1058,
+                "src": "285:18:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -323,10 +227,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 745,
+                  "id": 1052,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "393:7:2",
+                  "src": "285:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -337,13 +241,13 @@
               },
               {
                 "constant": false,
-                "id": 748,
+                "id": 1055,
                 "mutability": "mutable",
                 "name": "hasAmount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "421:17:2",
+                "scope": 1058,
+                "src": "313:17:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -351,10 +255,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 747,
+                  "id": 1054,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "421:7:2",
+                  "src": "313:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -365,13 +269,13 @@
               },
               {
                 "constant": false,
-                "id": 750,
+                "id": 1057,
                 "mutability": "mutable",
                 "name": "signedContract",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "448:22:2",
+                "scope": 1058,
+                "src": "340:22:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -379,10 +283,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 749,
+                  "id": 1056,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "448:7:2",
+                  "src": "340:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -395,30 +299,30 @@
             ],
             "name": "Auction",
             "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "325:152:2",
+            "scope": 1059,
+            "src": "217:152:2",
             "visibility": "public"
           }
         ],
-        "scope": 753,
-        "src": "60:420:2"
+        "scope": 1060,
+        "src": "60:312:2"
       }
     ],
-    "src": "0:482:2"
+    "src": "0:374:2"
   },
   "legacyAST": {
-    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol",
     "exportedSymbols": {
       "DiscountingTypes": [
-        752
+        1059
       ]
     },
-    "id": 753,
+    "id": 1060,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 725,
+        "id": 1039,
         "literals": [
           "solidity",
           "^",
@@ -429,7 +333,7 @@
         "src": "0:24:2"
       },
       {
-        "id": 726,
+        "id": 1040,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -444,122 +348,26 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 752,
+        "id": 1059,
         "linearizedBaseContracts": [
-          752
+          1059
         ],
         "name": "DiscountingTypes",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "canonicalName": "DiscountingTypes.ContractRule",
-            "id": 733,
-            "members": [
-              {
-                "constant": false,
-                "id": 728,
-                "mutability": "mutable",
-                "name": "partner",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "124:15:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 727,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "124:7:2",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 730,
-                "mutability": "mutable",
-                "name": "amount",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "149:14:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 729,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "149:7:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 732,
-                "mutability": "mutable",
-                "name": "discount",
-                "nodeType": "VariableDeclaration",
-                "overrides": null,
-                "scope": 733,
-                "src": "173:16:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 731,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "173:7:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              }
-            ],
-            "name": "ContractRule",
-            "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "94:102:2",
-            "visibility": "public"
-          },
-          {
             "canonicalName": "DiscountingTypes.Supplier",
-            "id": 740,
+            "id": 1047,
             "members": [
               {
                 "constant": false,
-                "id": 735,
+                "id": 1042,
                 "mutability": "mutable",
                 "name": "supplierAddress",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "228:23:2",
+                "scope": 1047,
+                "src": "120:23:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -567,10 +375,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 734,
+                  "id": 1041,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "228:7:2",
+                  "src": "120:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -582,13 +390,13 @@
               },
               {
                 "constant": false,
-                "id": 737,
+                "id": 1044,
                 "mutability": "mutable",
-                "name": "discountPercent",
+                "name": "needAmount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "261:23:2",
+                "scope": 1047,
+                "src": "153:18:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -596,10 +404,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 736,
+                  "id": 1043,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "261:7:2",
+                  "src": "153:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -610,13 +418,13 @@
               },
               {
                 "constant": false,
-                "id": 739,
+                "id": 1046,
                 "mutability": "mutable",
-                "name": "needAmount",
+                "name": "discountPercent",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 740,
-                "src": "294:18:2",
+                "scope": 1047,
+                "src": "181:23:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -624,10 +432,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 738,
+                  "id": 1045,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "294:7:2",
+                  "src": "181:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -639,23 +447,23 @@
             ],
             "name": "Supplier",
             "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "202:117:2",
+            "scope": 1059,
+            "src": "94:117:2",
             "visibility": "public"
           },
           {
             "canonicalName": "DiscountingTypes.Auction",
-            "id": 751,
+            "id": 1058,
             "members": [
               {
                 "constant": false,
-                "id": 742,
+                "id": 1049,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "350:10:2",
+                "scope": 1058,
+                "src": "242:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -663,10 +471,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 741,
+                  "id": 1048,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "350:7:2",
+                  "src": "242:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -677,13 +485,13 @@
               },
               {
                 "constant": false,
-                "id": 744,
+                "id": 1051,
                 "mutability": "mutable",
                 "name": "buyer",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "370:13:2",
+                "scope": 1058,
+                "src": "262:13:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -691,10 +499,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 743,
+                  "id": 1050,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "370:7:2",
+                  "src": "262:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -706,13 +514,13 @@
               },
               {
                 "constant": false,
-                "id": 746,
+                "id": 1053,
                 "mutability": "mutable",
                 "name": "minPercent",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "393:18:2",
+                "scope": 1058,
+                "src": "285:18:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -720,10 +528,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 745,
+                  "id": 1052,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "393:7:2",
+                  "src": "285:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -734,13 +542,13 @@
               },
               {
                 "constant": false,
-                "id": 748,
+                "id": 1055,
                 "mutability": "mutable",
                 "name": "hasAmount",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "421:17:2",
+                "scope": 1058,
+                "src": "313:17:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -748,10 +556,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 747,
+                  "id": 1054,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "421:7:2",
+                  "src": "313:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -762,13 +570,13 @@
               },
               {
                 "constant": false,
-                "id": 750,
+                "id": 1057,
                 "mutability": "mutable",
                 "name": "signedContract",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 751,
-                "src": "448:22:2",
+                "scope": 1058,
+                "src": "340:22:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -776,10 +584,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 749,
+                  "id": 1056,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "448:7:2",
+                  "src": "340:7:2",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -792,16 +600,16 @@
             ],
             "name": "Auction",
             "nodeType": "StructDefinition",
-            "scope": 752,
-            "src": "325:152:2",
+            "scope": 1059,
+            "src": "217:152:2",
             "visibility": "public"
           }
         ],
-        "scope": 753,
-        "src": "60:420:2"
+        "scope": 1060,
+        "src": "60:312:2"
       }
     ],
-    "src": "0:482:2"
+    "src": "0:374:2"
   },
   "compiler": {
     "name": "solc",
@@ -809,7 +617,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-13T03:56:29.080Z",
+  "updatedAt": "2020-12-13T06:22:52.338Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -16,12 +16,11 @@ pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
-import "./IDiscountingFactory.sol";
-import "./DiscountingTypes.sol";
-import "./DiscountingContract.sol";
+import "./SupplyOrderTypes.sol";
+import "./SupplyOrderContract.sol";
 
 
-contract DiscountingFactory is DiscountingTypes, Ownable {
+contract SupplyOrderFactory is SupplyOrderTypes, Ownable {
 
     using SafeMath for uint256;
 
@@ -34,34 +33,15 @@ contract DiscountingFactory is DiscountingTypes, Ownable {
         address target;
         string description;
         ContractRule rule;
-        DiscountingContract signedContract;
+        SupplyOrderContract signedContract;
     }
-
-
-
-    // struct AuctionOrder {
-    //     uint256 id;
-    //     address initiator;
-    //     Side ordeSide;
-    //     string description;
-    //     Participant supplier;
-    //     Participant[] buyers;
-    // }
-
-    // struct AuctionBuyOrder {
-    //     uint256 id;
-    //     address initiator;
-    //     string description;
-    //     Participant buyer;
-    //     Participant[] suppliers;
-    // }
 
 
     //
     // Storage
     //
 
-    DiscountingContract[] public contracts;
+    SupplyOrderContract[] public contracts;
     P2POrder[] public p2pOrders;
 
     //
@@ -91,7 +71,7 @@ contract DiscountingFactory is DiscountingTypes, Ownable {
             target: _to,
             description: _description,
             rule: _rule,
-            signedContract: DiscountingContract(address(0))
+            signedContract: SupplyOrderContract(address(0))
         });
 
         p2pOrders.push(newOrder);
@@ -115,7 +95,7 @@ contract DiscountingFactory is DiscountingTypes, Ownable {
             buyer = payable(p2pOrders[_orderId].target);
             supplier = payable(p2pOrders[_orderId].initiator);
         }
-        DiscountingContract newContract = new DiscountingContract(
+        SupplyOrderContract newContract = new SupplyOrderContract(
             buyer,
             supplier,
             p2pOrders[_orderId].description,

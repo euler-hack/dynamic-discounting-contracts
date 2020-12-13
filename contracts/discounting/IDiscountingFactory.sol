@@ -13,7 +13,7 @@ interface IDiscountingFactory is DiscountingTypes {
 
     function getAuctionDetails(uint256 _id) external view returns(Auction memory);
 
-    function getContractDetails(address _contractAddress) external view returns(ContractRule[] memory);
+    function getContractDetails(address _contractAddress) external view returns(Supplier[] memory);
 
     //
     // no gas control methods

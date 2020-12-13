@@ -5,7 +5,7 @@ import "./DiscountingTypes.sol";
 
 interface IDiscountingContract is DiscountingTypes {
 
-    function getContractRule() external view returns(ContractRule memory);
+    function getSuppliers() external view returns(Supplier[] memory);
 
 }
 

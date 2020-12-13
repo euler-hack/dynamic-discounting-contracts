@@ -15,11 +15,10 @@ pragma solidity ^0.6.12;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/math/SafeMath.sol";
-import "./IDiscountingContract.sol";
-import "./DiscountingTypes.sol";
+import "./SupplyOrderTypes.sol";
 
 
-contract DiscountingContract is IDiscountingContract, DiscountingTypes {
+contract SupplyOrderContract is SupplyOrderTypes {
 
     using SafeMath for uint256;
 

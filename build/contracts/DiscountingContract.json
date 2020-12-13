@@ -9,21 +9,21 @@
           "type": "uint256"
         }
       ],
-      "name": "contractRules",
+      "name": "Suppliers",
       "outputs": [
         {
           "internalType": "address",
-          "name": "partner",
+          "name": "supplierAddress",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "amount",
+          "name": "needAmount",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "discount",
+          "name": "discountPercent",
           "type": "uint256"
         }
       ],
@@ -32,12 +32,25 @@
     },
     {
       "inputs": [],
-      "name": "contractRulesLength",
+      "name": "SuppliersLength",
       "outputs": [
         {
           "internalType": "uint256",
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "inited",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
         }
       ],
       "stateMutability": "view",
@@ -49,21 +62,21 @@
           "components": [
             {
               "internalType": "address",
-              "name": "partner",
+              "name": "supplierAddress",
               "type": "address"
             },
             {
               "internalType": "uint256",
-              "name": "amount",
+              "name": "needAmount",
               "type": "uint256"
             },
             {
               "internalType": "uint256",
-              "name": "discount",
+              "name": "discountPercent",
               "type": "uint256"
             }
           ],
-          "internalType": "struct DiscountingTypes.ContractRule[]",
+          "internalType": "struct DiscountingTypes.Supplier[]",
           "name": "_rule",
           "type": "tuple[]"
         }
@@ -75,27 +88,27 @@
     },
     {
       "inputs": [],
-      "name": "getContractRules",
+      "name": "getSuppliers",
       "outputs": [
         {
           "components": [
             {
               "internalType": "address",
-              "name": "partner",
+              "name": "supplierAddress",
               "type": "address"
             },
             {
               "internalType": "uint256",
-              "name": "amount",
+              "name": "needAmount",
               "type": "uint256"
             },
             {
               "internalType": "uint256",
-              "name": "discount",
+              "name": "discountPercent",
               "type": "uint256"
             }
           ],
-          "internalType": "struct DiscountingTypes.ContractRule[]",
+          "internalType": "struct DiscountingTypes.Supplier[]",
           "name": "",
           "type": "tuple[]"
         }
@@ -104,22 +117,22 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"contractRules\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"partner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contractRulesLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractRules\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"partner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"partner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule[]\",\"name\":\"_rule\",\"type\":\"tuple[]\"}],\"name\":\"initContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":\"DiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol\":{\"keccak256\":\"0xf6302741beeb48d1c733d907e6d5e05560702e29dbc47af7403c6749c022735b\",\"urls\":[\"bzz-raw://a86747c1cad08b847d96db52e234fd810bdae5b010721d665580a2906f0b0881\",\"dweb:/ipfs/QmQFvbc7W6mASywFZoFgVYgAzAiNyPrDGtZgiS6ymDvWob\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x6a7572a5df94ca2dd334f7c5ac80ee52f3998796b680367ac7daba186384473e\",\"urls\":[\"bzz-raw://6bca329079241c5ff6af7e614458f28d6f87291cf68c8c6abc914dda6d95111b\",\"dweb:/ipfs/QmTCCiPinHGuzJ2CaYdhGZ3XA53sTKnxWdMws5CpxQL2am\"]}},\"version\":1}",
-  "bytecode": "0x6080604052600060015534801561001557600080fd5b5061045a806100256000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630477aade146100515780631e4a2a031461007c5780632f45516c1461009157806351dad731146100a6575b600080fd5b61006461005f366004610359565b6100bb565b60405161007393929190610371565b60405180910390f35b61008f61008a3660046102a9565b6100e6565b005b61009961015f565b6040516100739190610392565b6100ae610227565b60405161007391906103f4565b6000602081905290815260409020805460018201546002909201546001600160a01b03909116919083565b60005b8151811015610153578181815181106100fe57fe5b602090810291909101810151600180546000908152808452604090819020835181546001600160a01b0319166001600160a01b03909116178155938301518483015590910151600290920191909155016100e9565b50506001805481019055565b60608060015467ffffffffffffffff8111801561017b57600080fd5b506040519080825280602002602001820160405280156101b557816020015b6101a261022d565b81526020019060019003908161019a5790505b50905060005b81518110156102215760008181526020818152604091829020825160608101845281546001600160a01b031681526001820154928101929092526002015491810191909152825183908390811061020e57fe5b60209081029190910101526001016101bb565b50905090565b60015481565b604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b600060608284031215610268578081fd5b61027260606103fd565b905081356001600160a01b038116811461028b57600080fd5b80825250602082013560208201526040820135604082015292915050565b600060208083850312156102bb578182fd5b823567ffffffffffffffff808211156102d2578384fd5b818501915085601f8301126102e5578384fd5b8135818111156102f3578485fd5b61030084858302016103fd565b81815284810192508385016060808402860187018a101561031f578788fd5b8795505b8386101561034b576103358a83610257565b8552600195909501949386019390810190610323565b509098975050505050505050565b60006020828403121561036a578081fd5b5035919050565b6001600160a01b039390931683526020830191909152604082015260600190565b602080825282518282018190526000919060409081850190868401855b828110156103e757815180516001600160a01b03168552868101518786015285015185850152606090930192908501906001016103af565b5091979650505050505050565b90815260200190565b60405181810167ffffffffffffffff8111828210171561041c57600080fd5b60405291905056fea26469706673582212208883f456540b3f89a97689f710338c361bac26ad103ef65da078918d110d292664736f6c634300060c0033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630477aade146100515780631e4a2a031461007c5780632f45516c1461009157806351dad731146100a6575b600080fd5b61006461005f366004610359565b6100bb565b60405161007393929190610371565b60405180910390f35b61008f61008a3660046102a9565b6100e6565b005b61009961015f565b6040516100739190610392565b6100ae610227565b60405161007391906103f4565b6000602081905290815260409020805460018201546002909201546001600160a01b03909116919083565b60005b8151811015610153578181815181106100fe57fe5b602090810291909101810151600180546000908152808452604090819020835181546001600160a01b0319166001600160a01b03909116178155938301518483015590910151600290920191909155016100e9565b50506001805481019055565b60608060015467ffffffffffffffff8111801561017b57600080fd5b506040519080825280602002602001820160405280156101b557816020015b6101a261022d565b81526020019060019003908161019a5790505b50905060005b81518110156102215760008181526020818152604091829020825160608101845281546001600160a01b031681526001820154928101929092526002015491810191909152825183908390811061020e57fe5b60209081029190910101526001016101bb565b50905090565b60015481565b604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b600060608284031215610268578081fd5b61027260606103fd565b905081356001600160a01b038116811461028b57600080fd5b80825250602082013560208201526040820135604082015292915050565b600060208083850312156102bb578182fd5b823567ffffffffffffffff808211156102d2578384fd5b818501915085601f8301126102e5578384fd5b8135818111156102f3578485fd5b61030084858302016103fd565b81815284810192508385016060808402860187018a101561031f578788fd5b8795505b8386101561034b576103358a83610257565b8552600195909501949386019390810190610323565b509098975050505050505050565b60006020828403121561036a578081fd5b5035919050565b6001600160a01b039390931683526020830191909152604082015260600190565b602080825282518282018190526000919060409081850190868401855b828110156103e757815180516001600160a01b03168552868101518786015285015185850152606090930192908501906001016103af565b5091979650505050505050565b90815260200190565b60405181810167ffffffffffffffff8111828210171561041c57600080fd5b60405291905056fea26469706673582212208883f456540b3f89a97689f710338c361bac26ad103ef65da078918d110d292664736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Suppliers\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"supplierAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"needAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discountPercent\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SuppliersLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSuppliers\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"supplierAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"needAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discountPercent\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.Supplier[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"supplierAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"needAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discountPercent\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.Supplier[]\",\"name\":\"_rule\",\"type\":\"tuple[]\"}],\"name\":\"initContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"inited\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingContract.sol\":\"DiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingContract.sol\":{\"keccak256\":\"0x6aece3552be3d595158d83b3d789e7d338796ebf629cbd455ec2787ff66d2c0e\",\"urls\":[\"bzz-raw://6644ebd53eb2f44a925fe3907f47ca6d9309458c5da2b79f792ba1fc04b9961f\",\"dweb:/ipfs/QmVtheaWX3Zd2WFjhwRNyhU9NzWjz9B9rRaM45rZvFfh7V\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingTypes.sol\":{\"keccak256\":\"0x81fa6eaebf40a621317010acf4860aedef20db1ec202036bf3e9a6e636db9927\",\"urls\":[\"bzz-raw://481756d4f503c9d45b07e921282bb1e657c16448d3254fa8779b37d3ac15dcd4\",\"dweb:/ipfs/QmSawU41kUgm7gn4FvTJZ4yCvsT8juGVqwLjBQXZirZqrH\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/IDiscountingContract.sol\":{\"keccak256\":\"0x5b2abfd565e849a265a73e8e3a77c6f6b007b6817e7933eb40dc7968162e38a8\",\"urls\":[\"bzz-raw://c5efb8547f6c0375da306afa0cb5810d02d1dfad966437ae86f8ebae15a4e979\",\"dweb:/ipfs/QmSVXYAvtRkqp1LLQjwb1BsLDJy8ZGeADHhc8bbvjCjNCg\"]}},\"version\":1}",
+  "bytecode": "0x608060405260006001556002805460ff1916905534801561001f57600080fd5b506104a98061002f6000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80631e4a2a031461005c57806324b2dff1146100715780632b3eb1371461009c57806343516832146100b157806343c885ba146100c6575b600080fd5b61006f61006a3660046102ed565b6100db565b005b61008461007f36600461039d565b61016f565b604051610093939291906103b5565b60405180910390f35b6100a461019a565b6040516100939190610443565b6100b96101a0565b60405161009391906103d6565b6100ce610268565b6040516100939190610438565b60025460ff16156100eb57600080fd5b60005b815181101561015e5781818151811061010357fe5b602090810291909101810151600180546000908152808452604090819020835181546001600160a01b0319166001600160a01b03909116178155938301518483015590910151600290920191909155805481018155016100ee565b50506002805460ff19166001179055565b6000602081905290815260409020805460018201546002909201546001600160a01b03909116919083565b60015481565b60608060015467ffffffffffffffff811180156101bc57600080fd5b506040519080825280602002602001820160405280156101f657816020015b6101e3610271565b8152602001906001900390816101db5790505b50905060005b81518110156102625760008181526020818152604091829020825160608101845281546001600160a01b031681526001820154928101929092526002015491810191909152825183908390811061024f57fe5b60209081029190910101526001016101fc565b50905090565b60025460ff1681565b604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b6000606082840312156102ac578081fd5b6102b6606061044c565b905081356001600160a01b03811681146102cf57600080fd5b80825250602082013560208201526040820135604082015292915050565b600060208083850312156102ff578182fd5b823567ffffffffffffffff80821115610316578384fd5b818501915085601f830112610329578384fd5b813581811115610337578485fd5b610344848583020161044c565b81815284810192508385016060808402860187018a1015610363578788fd5b8795505b8386101561038f576103798a8361029b565b8552600195909501949386019390810190610367565b509098975050505050505050565b6000602082840312156103ae578081fd5b5035919050565b6001600160a01b039390931683526020830191909152604082015260600190565b602080825282518282018190526000919060409081850190868401855b8281101561042b57815180516001600160a01b03168552868101518786015285015185850152606090930192908501906001016103f3565b5091979650505050505050565b901515815260200190565b90815260200190565b60405181810167ffffffffffffffff8111828210171561046b57600080fd5b60405291905056fea26469706673582212206054f05c8997c23ecb98e15a02b641b4dcffcded9abd8b026f6edd59e04058ac64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c80631e4a2a031461005c57806324b2dff1146100715780632b3eb1371461009c57806343516832146100b157806343c885ba146100c6575b600080fd5b61006f61006a3660046102ed565b6100db565b005b61008461007f36600461039d565b61016f565b604051610093939291906103b5565b60405180910390f35b6100a461019a565b6040516100939190610443565b6100b96101a0565b60405161009391906103d6565b6100ce610268565b6040516100939190610438565b60025460ff16156100eb57600080fd5b60005b815181101561015e5781818151811061010357fe5b602090810291909101810151600180546000908152808452604090819020835181546001600160a01b0319166001600160a01b03909116178155938301518483015590910151600290920191909155805481018155016100ee565b50506002805460ff19166001179055565b6000602081905290815260409020805460018201546002909201546001600160a01b03909116919083565b60015481565b60608060015467ffffffffffffffff811180156101bc57600080fd5b506040519080825280602002602001820160405280156101f657816020015b6101e3610271565b8152602001906001900390816101db5790505b50905060005b81518110156102625760008181526020818152604091829020825160608101845281546001600160a01b031681526001820154928101929092526002015491810191909152825183908390811061024f57fe5b60209081029190910101526001016101fc565b50905090565b60025460ff1681565b604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b6000606082840312156102ac578081fd5b6102b6606061044c565b905081356001600160a01b03811681146102cf57600080fd5b80825250602082013560208201526040820135604082015292915050565b600060208083850312156102ff578182fd5b823567ffffffffffffffff80821115610316578384fd5b818501915085601f830112610329578384fd5b813581811115610337578485fd5b610344848583020161044c565b81815284810192508385016060808402860187018a1015610363578788fd5b8795505b8386101561038f576103798a8361029b565b8552600195909501949386019390810190610367565b509098975050505050505050565b6000602082840312156103ae578081fd5b5035919050565b6001600160a01b039390931683526020830191909152604082015260600190565b602080825282518282018190526000919060409081850190868401855b8281101561042b57815180516001600160a01b03168552868101518786015285015185850152606090930192908501906001016103f3565b5091979650505050505050565b901515815260200190565b90815260200190565b60405181810167ffffffffffffffff8111828210171561046b57600080fd5b60405291905056fea26469706673582212206054f05c8997c23ecb98e15a02b641b4dcffcded9abd8b026f6edd59e04058ac64736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "94:676:0:-:0;;;246:1;209:38;;94:676;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "94:676:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;150:53;;;;;;:::i;:::-;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;254:218;;;;;;:::i;:::-;;:::i;:::-;;478:289;;;:::i;:::-;;;;;;;:::i;209:38::-;;;:::i;:::-;;;;;;;:::i;150:53::-;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;150:53:0;;;;;;:::o;254:218::-;327:9;322:113;346:5;:12;342:1;:16;322:113;;;416:5;422:1;416:8;;;;;;;;;;;;;;;;;;;393:19;;;379:13;:34;;;;;;;;;;;:45;;;;-1:-1:-1;;;;;;379:45:0;-1:-1:-1;;;;;379:45:0;;;;;;;;;;;;;;;;;;;;;;;;;;360:3;322:113;;;-1:-1:-1;;444:19:0;:21;;;;;;254:218::o;478:289::-;528:21;561:28;611:19;;592:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;561:70;;646:9;641:97;665:6;:13;661:1;:17;641:97;;;711:13;:16;;;;;;;;;;;;699:28;;;;;;;;;-1:-1:-1;;;;;699:28:0;;;-1:-1:-1;699:28:0;;;;;;;;;;;;;;;;;;;;:9;;;;711:16;;699:9;;;;;;;;;;;;;;;:28;680:3;;641:97;;;-1:-1:-1;754:6:0;-1:-1:-1;478:289:0;:::o;209:38::-;;;;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1034:624::-;;1152:4;1140:9;1135:3;1131:19;1127:30;1124:2;;;-1:-1;;1160:12;1124:2;1188:20;1152:4;1188:20;:::i;:::-;1179:29;-1:-1;72:20;;-1:-1;;;;;7652:54;;7856:35;;7846:2;;7905:1;;7895:12;7846:2;1293:49;1275:16;1268:75;;1406:2;1464:9;1460:22;1732:20;1406:2;1425:5;1421:16;1414:75;1554:2;1612:9;1608:22;1732:20;1554:2;1573:5;1569:16;1562:75;1118:540;;;;:::o;1802:435::-;;1960:2;;1948:9;1939:7;1935:23;1931:32;1928:2;;;-1:-1;;1966:12;1928:2;2024:17;2011:31;2062:18;;2054:6;2051:30;2048:2;;;-1:-1;;2084:12;2048:2;2204:6;2193:9;2189:22;;;335:3;328:4;320:6;316:17;312:27;302:2;;-1:-1;;343:12;302:2;390:6;377:20;2062:18;6612:6;6609:30;6606:2;;;-1:-1;;6642:12;6606:2;412:109;1960:2;;6679:6;6675:17;6740:15;412:109;:::i;:::-;549:21;;;606:14;;;;-1:-1;581:17;;;707:4;695:17;;;686:27;;;;683:36;-1:-1;680:2;;;-1:-1;;722:12;680:2;-1:-1;748:10;;742:235;767:6;764:1;761:13;742:235;;;847:66;909:3;897:10;847:66;:::i;:::-;835:79;;789:1;782:9;;;;;928:14;;;;956;;;;742:235;;;-1:-1;2104:117;;1922:315;-1:-1;;;;;;;;1922:315::o;2244:241::-;;2348:2;2336:9;2327:7;2323:23;2319:32;2316:2;;;-1:-1;;2354:12;2316:2;-1:-1;1732:20;;2310:175;-1:-1;2310:175::o;4996:444::-;-1:-1;;;;;7652:54;;;;2851:37;;5343:2;5328:18;;4827:37;;;;5426:2;5411:18;;4827:37;5179:2;5164:18;;5150:290::o;5447:486::-;5682:2;5696:47;;;7091:12;;5667:18;;;7424:19;;;5447:486;;5682:2;7464:14;;;;;;6916;;;5447:486;3662:347;3687:6;3684:1;3681:13;3662:347;;;3748:13;;4332:23;;-1:-1;;;;;7652:54;2851:37;;4494:16;;;4488:23;4565:14;;;4827:37;4652:16;;4646:23;4723:14;;;4827:37;2771:4;2762:14;;;;7250;;;;-1:-1;3702:9;3662:347;;;-1:-1;5749:174;;5653:280;-1:-1;;;;;;;5653:280::o;5940:222::-;4827:37;;;6067:2;6052:18;;6038:124::o;6169:256::-;6231:2;6225:9;6257:17;;;6332:18;6317:34;;6353:22;;;6314:62;6311:2;;;6389:1;;6379:12;6311:2;6231;6398:22;6209:216;;-1:-1;6209:216::o",
-  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\nimport \"./DiscountingTypes.sol\";\n\ncontract DiscountingContract is DiscountingTypes {\n\n    mapping(uint256 => ContractRule) public contractRules;\n    uint256 public contractRulesLength = 0;\n\n    function initContract(ContractRule[] memory _rule) public {\n        for (uint256 i = 0; i < _rule.length; i++) {\n            contractRules[contractRulesLength] = _rule[i];\n        }\n        contractRulesLength++;\n    }\n\n    function getContractRules() external view returns(ContractRule[] memory) {\n        ContractRule[] memory result = new ContractRule[](contractRulesLength);\n        for (uint256 i = 0; i < result.length; i++) {\n            result[i] = contractRules[i];\n        }\n        return result;\n    }\n\n}\n\n",
-  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol",
+  "sourceMap": "98:730:0:-:0;;;242:1;209:34;;249:26;;;-1:-1:-1;;249:26:0;;;98:730;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "98:730:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;282:263;;;;;;:::i;:::-;;:::i;:::-;;158:45;;;;;;:::i;:::-;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;;;;209:34;;;:::i;:::-;;;;;;;:::i;551:274::-;;;:::i;:::-;;;;;;;:::i;249:26::-;;;:::i;:::-;;;;;;;:::i;282:263::-;354:6;;;;:15;346:24;;;;;;385:9;380:136;404:5;:12;400:1;:16;380:136;;;466:5;472:1;466:8;;;;;;;;;;;;;;;;;;;447:15;;;437:9;:26;;;;;;;;;;;:37;;;;-1:-1:-1;;;;;;437:37:0;-1:-1:-1;;;;;437:37:0;;;;;;;;;;;;;;;;;;;;;;;;;;488:17;;;;;;418:3;380:136;;;-1:-1:-1;;525:6:0;:13;;-1:-1:-1;;525:13:0;534:4;525:13;;;282:263::o;158:45::-;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;158:45:0;;;;;;:::o;209:34::-;;;;:::o;551:274::-;606:17;635:24;677:15;;662:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;635:58;;708:9;703:93;727:6;:13;723:1;:17;703:93;;;773:9;:12;;;;;;;;;;;;761:24;;;;;;;;;-1:-1:-1;;;;;761:24:0;;;-1:-1:-1;761:24:0;;;;;;;;;;;;;;;;;;;;:9;;;;773:12;;761:9;;;;;;;;;;;;;;;:24;742:3;;703:93;;;-1:-1:-1;812:6:0;-1:-1:-1;551:274:0;:::o;249:26::-;;;;;;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1017:640::-;;1132:4;1120:9;1115:3;1111:19;1107:30;1104:2;;;-1:-1;;1140:12;1104:2;1168:20;1132:4;1168:20;:::i;:::-;1159:29;-1:-1;72:20;;-1:-1;;;;;7999:54;;8203:35;;8193:2;;8252:1;;8242:12;8193:2;1281:49;1263:16;1256:75;;1398:2;1456:9;1452:22;1731:20;1398:2;1417:5;1413:16;1406:75;1553:2;1611:9;1607:22;1731:20;1553:2;1572:5;1568:16;1561:75;1098:559;;;;:::o;1801:429::-;;1956:2;;1944:9;1935:7;1931:23;1927:32;1924:2;;;-1:-1;;1962:12;1924:2;2020:17;2007:31;2058:18;;2050:6;2047:30;2044:2;;;-1:-1;;2080:12;2044:2;2197:6;2186:9;2182:22;;;328:3;321:4;313:6;309:17;305:27;295:2;;-1:-1;;336:12;295:2;383:6;370:20;2058:18;6879:6;6876:30;6873:2;;;-1:-1;;6909:12;6873:2;405:106;1956:2;;6946:6;6942:17;7007:15;405:106;:::i;:::-;539:21;;;596:14;;;;-1:-1;571:17;;;697:4;685:17;;;676:27;;;;673:36;-1:-1;670:2;;;-1:-1;;712:12;670:2;-1:-1;738:10;;732:232;757:6;754:1;751:13;732:232;;;837:63;896:3;884:10;837:63;:::i;:::-;825:76;;779:1;772:9;;;;;915:14;;;;943;;;;732:232;;;-1:-1;2100:114;;1918:312;-1:-1;;;;;;;;1918:312::o;2237:241::-;;2341:2;2329:9;2320:7;2316:23;2312:32;2309:2;;;-1:-1;;2347:12;2309:2;-1:-1;1731:20;;2303:175;-1:-1;2303:175::o;5061:444::-;-1:-1;;;;;7999:54;;;;2832:37;;5408:2;5393:18;;4892:37;;;;5491:2;5476:18;;4892:37;5244:2;5229:18;;5215:290::o;5512:474::-;5741:2;5755:47;;;7352:12;;5726:18;;;7679:19;;;5512:474;;5741:2;7719:14;;;;;;7180;;;5512:474;3620:338;3645:6;3642:1;3639:13;3620:338;;;3706:13;;4386:23;;-1:-1;;;;;7999:54;2832:37;;4552:16;;;4546:23;4623:14;;;4892:37;4717:16;;4711:23;4788:14;;;4892:37;2752:4;2743:14;;;;7508;;;;-1:-1;3660:9;3620:338;;;-1:-1;5808:168;;5712:274;-1:-1;;;;;;;5712:274::o;5993:210::-;7911:13;;7904:21;4053:34;;6114:2;6099:18;;6085:118::o;6210:222::-;4892:37;;;6337:2;6322:18;;6308:124::o;6439:256::-;6501:2;6495:9;6527:17;;;6602:18;6587:34;;6623:22;;;6584:62;6581:2;;;6659:1;;6649:12;6581:2;6501;6668:22;6479:216;;-1:-1;6479:216::o",
+  "source": "pragma solidity ^0.6.12;\npragma experimental ABIEncoderV2;\n\nimport \"./IDiscountingContract.sol\";\n\ncontract DiscountingContract is IDiscountingContract {\n\n    mapping(uint256 => Supplier) public Suppliers;\n    uint256 public SuppliersLength = 0;\n    bool public inited = false;\n\n    function initContract(Supplier[] memory _rule) public {\n        require(inited == false);\n        for (uint256 i = 0; i < _rule.length; i++) {\n            Suppliers[SuppliersLength] = _rule[i];\n            SuppliersLength++;\n        }\n        inited = true;\n    }\n\n    function getSuppliers() external view override returns(Supplier[] memory) {\n        Supplier[] memory result = new Supplier[](SuppliersLength);\n        for (uint256 i = 0; i < result.length; i++) {\n            result[i] = Suppliers[i];\n        }\n        return result;\n    }\n\n}\n\n",
+  "sourcePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingContract.sol",
   "ast": {
-    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol",
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingContract.sol",
     "exportedSymbols": {
       "DiscountingContract": [
-        84
+        98
       ]
     },
-    "id": 85,
+    "id": 99,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
@@ -144,13 +157,13 @@
         "src": "25:33:0"
       },
       {
-        "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
-        "file": "./DiscountingTypes.sol",
+        "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/IDiscountingContract.sol",
+        "file": "./IDiscountingContract.sol",
         "id": 3,
         "nodeType": "ImportDirective",
-        "scope": 85,
-        "sourceUnit": 776,
-        "src": "60:32:0",
+        "scope": 99,
+        "sourceUnit": 1073,
+        "src": "60:36:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -162,49 +175,51 @@
             "baseName": {
               "contractScope": null,
               "id": 4,
-              "name": "DiscountingTypes",
+              "name": "IDiscountingContract",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 775,
-              "src": "126:16:0",
+              "referencedDeclaration": 1072,
+              "src": "130:20:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$775",
-                "typeString": "contract DiscountingTypes"
+                "typeIdentifier": "t_contract$_IDiscountingContract_$1072",
+                "typeString": "contract IDiscountingContract"
               }
             },
             "id": 5,
             "nodeType": "InheritanceSpecifier",
-            "src": "126:16:0"
+            "src": "130:20:0"
           }
         ],
         "contractDependencies": [
-          775
+          1059,
+          1072
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 84,
+        "id": 98,
         "linearizedBaseContracts": [
-          84,
-          775
+          98,
+          1072,
+          1059
         ],
         "name": "DiscountingContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "functionSelector": "0477aade",
+            "functionSelector": "24b2dff1",
             "id": 9,
             "mutability": "mutable",
-            "name": "contractRules",
+            "name": "Suppliers",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 84,
-            "src": "150:53:0",
+            "scope": 98,
+            "src": "158:45:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-              "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule)"
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+              "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier)"
             },
             "typeName": {
               "id": 8,
@@ -212,28 +227,28 @@
                 "id": 6,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "158:7:0",
+                "src": "166:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "150:32:0",
+              "src": "158:28:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule)"
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier)"
               },
               "valueType": {
                 "contractScope": null,
                 "id": 7,
-                "name": "ContractRule",
+                "name": "Supplier",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 756,
-                "src": "169:12:0",
+                "referencedDeclaration": 1047,
+                "src": "177:8:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                  "typeString": "struct DiscountingTypes.ContractRule"
+                  "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                  "typeString": "struct DiscountingTypes.Supplier"
                 }
               }
             },
@@ -242,14 +257,14 @@
           },
           {
             "constant": false,
-            "functionSelector": "51dad731",
+            "functionSelector": "2b3eb137",
             "id": 12,
             "mutability": "mutable",
-            "name": "contractRulesLength",
+            "name": "SuppliersLength",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 84,
-            "src": "209:38:0",
+            "scope": 98,
+            "src": "209:34:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -276,7 +291,7 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "246:1:0",
+              "src": "242:1:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -287,21 +302,162 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "functionSelector": "43c885ba",
+            "id": 15,
+            "mutability": "mutable",
+            "name": "inited",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 98,
+            "src": "249:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 13,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "249:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 14,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "270:5:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 42,
+              "id": 55,
               "nodeType": "Block",
-              "src": "312:160:0",
+              "src": "336:209:0",
               "statements": [
                 {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 24,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 22,
+                          "name": "inited",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 15,
+                          "src": "354:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "66616c7365",
+                          "id": 23,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "364:5:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        "src": "354:15:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 21,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "346:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 25,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "346:24:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 26,
+                  "nodeType": "ExpressionStatement",
+                  "src": "346:24:0"
+                },
+                {
                   "body": {
-                    "id": 37,
+                    "id": 49,
                     "nodeType": "Block",
-                    "src": "365:70:0",
+                    "src": "423:93:0",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 35,
+                          "id": 44,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -310,26 +466,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 29,
-                              "name": "contractRules",
+                              "id": 38,
+                              "name": "Suppliers",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 9,
-                              "src": "379:13:0",
+                              "src": "437:9:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier storage ref)"
                               }
                             },
-                            "id": 31,
+                            "id": 40,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 30,
-                              "name": "contractRulesLength",
+                              "id": 39,
+                              "name": "SuppliersLength",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 12,
-                              "src": "393:19:0",
+                              "src": "447:15:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -340,10 +496,10 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "379:34:0",
+                            "src": "437:26:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                              "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                              "typeString": "struct DiscountingTypes.Supplier storage ref"
                             }
                           },
                           "nodeType": "Assignment",
@@ -352,26 +508,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 32,
+                              "id": 41,
                               "name": "_rule",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 15,
-                              "src": "416:5:0",
+                              "referencedDeclaration": 18,
+                              "src": "466:5:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                                "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                                "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                               }
                             },
-                            "id": 34,
+                            "id": 43,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 33,
+                              "id": 42,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 19,
-                              "src": "422:1:0",
+                              "referencedDeclaration": 28,
+                              "src": "472:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -382,21 +538,55 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "416:8:0",
+                            "src": "466:8:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                              "typeString": "struct DiscountingTypes.ContractRule memory"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                              "typeString": "struct DiscountingTypes.Supplier memory"
                             }
                           },
-                          "src": "379:45:0",
+                          "src": "437:37:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                            "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                            "typeString": "struct DiscountingTypes.Supplier storage ref"
                           }
                         },
-                        "id": 36,
+                        "id": 45,
                         "nodeType": "ExpressionStatement",
-                        "src": "379:45:0"
+                        "src": "437:37:0"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 47,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "UnaryOperation",
+                          "operator": "++",
+                          "prefix": false,
+                          "src": "488:17:0",
+                          "subExpression": {
+                            "argumentTypes": null,
+                            "id": 46,
+                            "name": "SuppliersLength",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 12,
+                            "src": "488:15:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 48,
+                        "nodeType": "ExpressionStatement",
+                        "src": "488:17:0"
                       }
                     ]
                   },
@@ -406,19 +596,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 25,
+                    "id": 34,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 22,
+                      "id": 31,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 19,
-                      "src": "342:1:0",
+                      "referencedDeclaration": 28,
+                      "src": "400:1:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -430,18 +620,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 23,
+                        "id": 32,
                         "name": "_rule",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 15,
-                        "src": "346:5:0",
+                        "referencedDeclaration": 18,
+                        "src": "404:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                         }
                       },
-                      "id": 24,
+                      "id": 33,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -449,33 +639,33 @@
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "346:12:0",
+                      "src": "404:12:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "342:16:0",
+                    "src": "400:16:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 38,
+                  "id": 50,
                   "initializationExpression": {
                     "assignments": [
-                      19
+                      28
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 19,
+                        "id": 28,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "overrides": null,
-                        "scope": 38,
-                        "src": "327:9:0",
+                        "scope": 50,
+                        "src": "385:9:0",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -483,10 +673,10 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 18,
+                          "id": 27,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
-                          "src": "327:7:0",
+                          "src": "385:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -496,18 +686,18 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 21,
+                    "id": 30,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 20,
+                      "id": 29,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "339:1:0",
+                      "src": "397:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -516,12 +706,12 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "327:13:0"
+                    "src": "385:13:0"
                   },
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 27,
+                      "id": 36,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -529,15 +719,15 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "360:3:0",
+                      "src": "418:3:0",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 26,
+                        "id": 35,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 19,
-                        "src": "360:1:0",
+                        "referencedDeclaration": 28,
+                        "src": "418:1:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -548,52 +738,69 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 28,
+                    "id": 37,
                     "nodeType": "ExpressionStatement",
-                    "src": "360:3:0"
+                    "src": "418:3:0"
                   },
                   "nodeType": "ForStatement",
-                  "src": "322:113:0"
+                  "src": "380:136:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 40,
+                    "id": 53,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "nodeType": "UnaryOperation",
-                    "operator": "++",
-                    "prefix": false,
-                    "src": "444:21:0",
-                    "subExpression": {
+                    "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 39,
-                      "name": "contractRulesLength",
+                      "id": 51,
+                      "name": "inited",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 12,
-                      "src": "444:19:0",
+                      "referencedDeclaration": 15,
+                      "src": "525:6:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
                       }
                     },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 52,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "534:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "525:13:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 41,
+                  "id": 54,
                   "nodeType": "ExpressionStatement",
-                  "src": "444:21:0"
+                  "src": "525:13:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "1e4a2a03",
-            "id": 43,
+            "id": 56,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -601,128 +808,131 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 16,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 15,
+                  "id": 18,
                   "mutability": "mutable",
                   "name": "_rule",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 43,
-                  "src": "276:27:0",
+                  "scope": 56,
+                  "src": "304:23:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct DiscountingTypes.ContractRule[]"
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 13,
-                      "name": "ContractRule",
+                      "id": 16,
+                      "name": "Supplier",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 756,
-                      "src": "276:12:0",
+                      "referencedDeclaration": 1047,
+                      "src": "304:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule"
+                        "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier"
                       }
                     },
-                    "id": 14,
+                    "id": 17,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "276:14:0",
+                    "src": "304:10:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule[]"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier[]"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "275:29:0"
+              "src": "303:25:0"
             },
             "returnParameters": {
-              "id": 17,
+              "id": 20,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "312:0:0"
+              "src": "336:0:0"
             },
-            "scope": 84,
-            "src": "254:218:0",
+            "scope": 98,
+            "src": "282:263:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
+            "baseFunctions": [
+              1071
+            ],
             "body": {
-              "id": 82,
+              "id": 96,
               "nodeType": "Block",
-              "src": "551:216:0",
+              "src": "625:200:0",
               "statements": [
                 {
                   "assignments": [
-                    52
+                    66
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 52,
+                      "id": 66,
                       "mutability": "mutable",
                       "name": "result",
                       "nodeType": "VariableDeclaration",
                       "overrides": null,
-                      "scope": 82,
-                      "src": "561:28:0",
+                      "scope": 96,
+                      "src": "635:24:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule[]"
+                        "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier[]"
                       },
                       "typeName": {
                         "baseType": {
                           "contractScope": null,
-                          "id": 50,
-                          "name": "ContractRule",
+                          "id": 64,
+                          "name": "Supplier",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 756,
-                          "src": "561:12:0",
+                          "referencedDeclaration": 1047,
+                          "src": "635:8:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier"
                           }
                         },
-                        "id": 51,
+                        "id": 65,
                         "length": null,
                         "nodeType": "ArrayTypeName",
-                        "src": "561:14:0",
+                        "src": "635:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule[]"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier[]"
                         }
                       },
                       "value": null,
                       "visibility": "internal"
                     }
                   ],
-                  "id": 58,
+                  "id": 72,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 56,
-                        "name": "contractRulesLength",
+                        "id": 70,
+                        "name": "SuppliersLength",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 12,
-                        "src": "611:19:0",
+                        "src": "677:15:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -736,41 +946,41 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 55,
+                      "id": 69,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
                       "nodeType": "NewExpression",
-                      "src": "592:18:0",
+                      "src": "662:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr_$",
-                        "typeString": "function (uint256) pure returns (struct DiscountingTypes.ContractRule memory[] memory)"
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr_$",
+                        "typeString": "function (uint256) pure returns (struct DiscountingTypes.Supplier memory[] memory)"
                       },
                       "typeName": {
                         "baseType": {
                           "contractScope": null,
-                          "id": 53,
-                          "name": "ContractRule",
+                          "id": 67,
+                          "name": "Supplier",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 756,
-                          "src": "596:12:0",
+                          "referencedDeclaration": 1047,
+                          "src": "666:8:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier"
                           }
                         },
-                        "id": 54,
+                        "id": 68,
                         "length": null,
                         "nodeType": "ArrayTypeName",
-                        "src": "596:14:0",
+                        "src": "666:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule[]"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier[]"
                         }
                       }
                     },
-                    "id": 57,
+                    "id": 71,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -778,26 +988,26 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "592:39:0",
+                    "src": "662:31:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "561:70:0"
+                  "src": "635:58:0"
                 },
                 {
                   "body": {
-                    "id": 78,
+                    "id": 92,
                     "nodeType": "Block",
-                    "src": "685:53:0",
+                    "src": "747:49:0",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 76,
+                          "id": 90,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -806,26 +1016,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 70,
+                              "id": 84,
                               "name": "result",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 52,
-                              "src": "699:6:0",
+                              "referencedDeclaration": 66,
+                              "src": "761:6:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                                "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                                "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                               }
                             },
-                            "id": 72,
+                            "id": 86,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 71,
+                              "id": 85,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 60,
-                              "src": "706:1:0",
+                              "referencedDeclaration": 74,
+                              "src": "768:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -836,10 +1046,10 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "699:9:0",
+                            "src": "761:9:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                              "typeString": "struct DiscountingTypes.ContractRule memory"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                              "typeString": "struct DiscountingTypes.Supplier memory"
                             }
                           },
                           "nodeType": "Assignment",
@@ -848,26 +1058,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 73,
-                              "name": "contractRules",
+                              "id": 87,
+                              "name": "Suppliers",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 9,
-                              "src": "711:13:0",
+                              "src": "773:9:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier storage ref)"
                               }
                             },
-                            "id": 75,
+                            "id": 89,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 74,
+                              "id": 88,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 60,
-                              "src": "725:1:0",
+                              "referencedDeclaration": 74,
+                              "src": "783:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -878,21 +1088,21 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "711:16:0",
+                            "src": "773:12:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                              "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                              "typeString": "struct DiscountingTypes.Supplier storage ref"
                             }
                           },
-                          "src": "699:28:0",
+                          "src": "761:24:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule memory"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier memory"
                           }
                         },
-                        "id": 77,
+                        "id": 91,
                         "nodeType": "ExpressionStatement",
-                        "src": "699:28:0"
+                        "src": "761:24:0"
                       }
                     ]
                   },
@@ -902,19 +1112,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 66,
+                    "id": 80,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 63,
+                      "id": 77,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 60,
-                      "src": "661:1:0",
+                      "referencedDeclaration": 74,
+                      "src": "723:1:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -926,18 +1136,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 64,
+                        "id": 78,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 52,
-                        "src": "665:6:0",
+                        "referencedDeclaration": 66,
+                        "src": "727:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                         }
                       },
-                      "id": 65,
+                      "id": 79,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -945,33 +1155,33 @@
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "665:13:0",
+                      "src": "727:13:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "661:17:0",
+                    "src": "723:17:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 79,
+                  "id": 93,
                   "initializationExpression": {
                     "assignments": [
-                      60
+                      74
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 60,
+                        "id": 74,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "overrides": null,
-                        "scope": 79,
-                        "src": "646:9:0",
+                        "scope": 93,
+                        "src": "708:9:0",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -979,10 +1189,10 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 59,
+                          "id": 73,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
-                          "src": "646:7:0",
+                          "src": "708:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -992,18 +1202,18 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 62,
+                    "id": 76,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 61,
+                      "id": 75,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "658:1:0",
+                      "src": "720:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -1012,12 +1222,12 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "646:13:0"
+                    "src": "708:13:0"
                   },
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 68,
+                      "id": 82,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1025,15 +1235,15 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "680:3:0",
+                      "src": "742:3:0",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 67,
+                        "id": 81,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 60,
-                        "src": "680:1:0",
+                        "referencedDeclaration": 74,
+                        "src": "742:1:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1044,117 +1254,122 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 69,
+                    "id": 83,
                     "nodeType": "ExpressionStatement",
-                    "src": "680:3:0"
+                    "src": "742:3:0"
                   },
                   "nodeType": "ForStatement",
-                  "src": "641:97:0"
+                  "src": "703:93:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 80,
+                    "id": 94,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 52,
-                    "src": "754:6:0",
+                    "referencedDeclaration": 66,
+                    "src": "812:6:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                     }
                   },
-                  "functionReturnParameters": 48,
-                  "id": 81,
+                  "functionReturnParameters": 62,
+                  "id": 95,
                   "nodeType": "Return",
-                  "src": "747:13:0"
+                  "src": "805:13:0"
                 }
               ]
             },
             "documentation": null,
-            "functionSelector": "2f45516c",
-            "id": 83,
+            "functionSelector": "43516832",
+            "id": 97,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getContractRules",
+            "name": "getSuppliers",
             "nodeType": "FunctionDefinition",
-            "overrides": null,
+            "overrides": {
+              "id": 58,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "589:8:0"
+            },
             "parameters": {
-              "id": 44,
+              "id": 57,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "503:2:0"
+              "src": "572:2:0"
             },
             "returnParameters": {
-              "id": 48,
+              "id": 62,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 47,
+                  "id": 61,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 83,
-                  "src": "528:21:0",
+                  "scope": 97,
+                  "src": "606:17:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct DiscountingTypes.ContractRule[]"
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 45,
-                      "name": "ContractRule",
+                      "id": 59,
+                      "name": "Supplier",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 756,
-                      "src": "528:12:0",
+                      "referencedDeclaration": 1047,
+                      "src": "606:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule"
+                        "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier"
                       }
                     },
-                    "id": 46,
+                    "id": 60,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "528:14:0",
+                    "src": "606:10:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule[]"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier[]"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "527:23:0"
+              "src": "605:19:0"
             },
-            "scope": 84,
-            "src": "478:289:0",
+            "scope": 98,
+            "src": "551:274:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 85,
-        "src": "94:676:0"
+        "scope": 99,
+        "src": "98:730:0"
       }
     ],
-    "src": "0:772:0"
+    "src": "0:830:0"
   },
   "legacyAST": {
-    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingContract.sol",
+    "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/DiscountingContract.sol",
     "exportedSymbols": {
       "DiscountingContract": [
-        84
+        98
       ]
     },
-    "id": 85,
+    "id": 99,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
@@ -1179,13 +1394,13 @@
         "src": "25:33:0"
       },
       {
-        "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
-        "file": "./DiscountingTypes.sol",
+        "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/discounting/IDiscountingContract.sol",
+        "file": "./IDiscountingContract.sol",
         "id": 3,
         "nodeType": "ImportDirective",
-        "scope": 85,
-        "sourceUnit": 776,
-        "src": "60:32:0",
+        "scope": 99,
+        "sourceUnit": 1073,
+        "src": "60:36:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1197,49 +1412,51 @@
             "baseName": {
               "contractScope": null,
               "id": 4,
-              "name": "DiscountingTypes",
+              "name": "IDiscountingContract",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 775,
-              "src": "126:16:0",
+              "referencedDeclaration": 1072,
+              "src": "130:20:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$775",
-                "typeString": "contract DiscountingTypes"
+                "typeIdentifier": "t_contract$_IDiscountingContract_$1072",
+                "typeString": "contract IDiscountingContract"
               }
             },
             "id": 5,
             "nodeType": "InheritanceSpecifier",
-            "src": "126:16:0"
+            "src": "130:20:0"
           }
         ],
         "contractDependencies": [
-          775
+          1059,
+          1072
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 84,
+        "id": 98,
         "linearizedBaseContracts": [
-          84,
-          775
+          98,
+          1072,
+          1059
         ],
         "name": "DiscountingContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "functionSelector": "0477aade",
+            "functionSelector": "24b2dff1",
             "id": 9,
             "mutability": "mutable",
-            "name": "contractRules",
+            "name": "Suppliers",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 84,
-            "src": "150:53:0",
+            "scope": 98,
+            "src": "158:45:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-              "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule)"
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+              "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier)"
             },
             "typeName": {
               "id": 8,
@@ -1247,28 +1464,28 @@
                 "id": 6,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "158:7:0",
+                "src": "166:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "150:32:0",
+              "src": "158:28:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule)"
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier)"
               },
               "valueType": {
                 "contractScope": null,
                 "id": 7,
-                "name": "ContractRule",
+                "name": "Supplier",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 756,
-                "src": "169:12:0",
+                "referencedDeclaration": 1047,
+                "src": "177:8:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                  "typeString": "struct DiscountingTypes.ContractRule"
+                  "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                  "typeString": "struct DiscountingTypes.Supplier"
                 }
               }
             },
@@ -1277,14 +1494,14 @@
           },
           {
             "constant": false,
-            "functionSelector": "51dad731",
+            "functionSelector": "2b3eb137",
             "id": 12,
             "mutability": "mutable",
-            "name": "contractRulesLength",
+            "name": "SuppliersLength",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 84,
-            "src": "209:38:0",
+            "scope": 98,
+            "src": "209:34:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1311,7 +1528,7 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "246:1:0",
+              "src": "242:1:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -1322,21 +1539,162 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "functionSelector": "43c885ba",
+            "id": 15,
+            "mutability": "mutable",
+            "name": "inited",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 98,
+            "src": "249:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 13,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "249:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "66616c7365",
+              "id": 14,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "270:5:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "false"
+            },
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 42,
+              "id": 55,
               "nodeType": "Block",
-              "src": "312:160:0",
+              "src": "336:209:0",
               "statements": [
                 {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 24,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 22,
+                          "name": "inited",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 15,
+                          "src": "354:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "66616c7365",
+                          "id": 23,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "364:5:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        "src": "354:15:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 21,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "346:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 25,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "346:24:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 26,
+                  "nodeType": "ExpressionStatement",
+                  "src": "346:24:0"
+                },
+                {
                   "body": {
-                    "id": 37,
+                    "id": 49,
                     "nodeType": "Block",
-                    "src": "365:70:0",
+                    "src": "423:93:0",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 35,
+                          "id": 44,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1345,26 +1703,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 29,
-                              "name": "contractRules",
+                              "id": 38,
+                              "name": "Suppliers",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 9,
-                              "src": "379:13:0",
+                              "src": "437:9:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier storage ref)"
                               }
                             },
-                            "id": 31,
+                            "id": 40,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 30,
-                              "name": "contractRulesLength",
+                              "id": 39,
+                              "name": "SuppliersLength",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 12,
-                              "src": "393:19:0",
+                              "src": "447:15:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1375,10 +1733,10 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "379:34:0",
+                            "src": "437:26:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                              "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                              "typeString": "struct DiscountingTypes.Supplier storage ref"
                             }
                           },
                           "nodeType": "Assignment",
@@ -1387,26 +1745,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 32,
+                              "id": 41,
                               "name": "_rule",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 15,
-                              "src": "416:5:0",
+                              "referencedDeclaration": 18,
+                              "src": "466:5:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                                "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                                "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                               }
                             },
-                            "id": 34,
+                            "id": 43,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 33,
+                              "id": 42,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 19,
-                              "src": "422:1:0",
+                              "referencedDeclaration": 28,
+                              "src": "472:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1417,21 +1775,55 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "416:8:0",
+                            "src": "466:8:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                              "typeString": "struct DiscountingTypes.ContractRule memory"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                              "typeString": "struct DiscountingTypes.Supplier memory"
                             }
                           },
-                          "src": "379:45:0",
+                          "src": "437:37:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                            "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                            "typeString": "struct DiscountingTypes.Supplier storage ref"
                           }
                         },
-                        "id": 36,
+                        "id": 45,
                         "nodeType": "ExpressionStatement",
-                        "src": "379:45:0"
+                        "src": "437:37:0"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 47,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "UnaryOperation",
+                          "operator": "++",
+                          "prefix": false,
+                          "src": "488:17:0",
+                          "subExpression": {
+                            "argumentTypes": null,
+                            "id": 46,
+                            "name": "SuppliersLength",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 12,
+                            "src": "488:15:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 48,
+                        "nodeType": "ExpressionStatement",
+                        "src": "488:17:0"
                       }
                     ]
                   },
@@ -1441,19 +1833,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 25,
+                    "id": 34,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 22,
+                      "id": 31,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 19,
-                      "src": "342:1:0",
+                      "referencedDeclaration": 28,
+                      "src": "400:1:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1465,18 +1857,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 23,
+                        "id": 32,
                         "name": "_rule",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 15,
-                        "src": "346:5:0",
+                        "referencedDeclaration": 18,
+                        "src": "404:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                         }
                       },
-                      "id": 24,
+                      "id": 33,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1484,33 +1876,33 @@
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "346:12:0",
+                      "src": "404:12:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "342:16:0",
+                    "src": "400:16:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 38,
+                  "id": 50,
                   "initializationExpression": {
                     "assignments": [
-                      19
+                      28
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 19,
+                        "id": 28,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "overrides": null,
-                        "scope": 38,
-                        "src": "327:9:0",
+                        "scope": 50,
+                        "src": "385:9:0",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -1518,10 +1910,10 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 18,
+                          "id": 27,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
-                          "src": "327:7:0",
+                          "src": "385:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -1531,18 +1923,18 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 21,
+                    "id": 30,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 20,
+                      "id": 29,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "339:1:0",
+                      "src": "397:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -1551,12 +1943,12 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "327:13:0"
+                    "src": "385:13:0"
                   },
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 27,
+                      "id": 36,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1564,15 +1956,15 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "360:3:0",
+                      "src": "418:3:0",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 26,
+                        "id": 35,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 19,
-                        "src": "360:1:0",
+                        "referencedDeclaration": 28,
+                        "src": "418:1:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1583,52 +1975,69 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 28,
+                    "id": 37,
                     "nodeType": "ExpressionStatement",
-                    "src": "360:3:0"
+                    "src": "418:3:0"
                   },
                   "nodeType": "ForStatement",
-                  "src": "322:113:0"
+                  "src": "380:136:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 40,
+                    "id": 53,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "nodeType": "UnaryOperation",
-                    "operator": "++",
-                    "prefix": false,
-                    "src": "444:21:0",
-                    "subExpression": {
+                    "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 39,
-                      "name": "contractRulesLength",
+                      "id": 51,
+                      "name": "inited",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 12,
-                      "src": "444:19:0",
+                      "referencedDeclaration": 15,
+                      "src": "525:6:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
                       }
                     },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 52,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "534:4:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "525:13:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
                     }
                   },
-                  "id": 41,
+                  "id": 54,
                   "nodeType": "ExpressionStatement",
-                  "src": "444:21:0"
+                  "src": "525:13:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "1e4a2a03",
-            "id": 43,
+            "id": 56,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1636,128 +2045,131 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 16,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 15,
+                  "id": 18,
                   "mutability": "mutable",
                   "name": "_rule",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 43,
-                  "src": "276:27:0",
+                  "scope": 56,
+                  "src": "304:23:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct DiscountingTypes.ContractRule[]"
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 13,
-                      "name": "ContractRule",
+                      "id": 16,
+                      "name": "Supplier",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 756,
-                      "src": "276:12:0",
+                      "referencedDeclaration": 1047,
+                      "src": "304:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule"
+                        "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier"
                       }
                     },
-                    "id": 14,
+                    "id": 17,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "276:14:0",
+                    "src": "304:10:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule[]"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier[]"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "275:29:0"
+              "src": "303:25:0"
             },
             "returnParameters": {
-              "id": 17,
+              "id": 20,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "312:0:0"
+              "src": "336:0:0"
             },
-            "scope": 84,
-            "src": "254:218:0",
+            "scope": 98,
+            "src": "282:263:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
+            "baseFunctions": [
+              1071
+            ],
             "body": {
-              "id": 82,
+              "id": 96,
               "nodeType": "Block",
-              "src": "551:216:0",
+              "src": "625:200:0",
               "statements": [
                 {
                   "assignments": [
-                    52
+                    66
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 52,
+                      "id": 66,
                       "mutability": "mutable",
                       "name": "result",
                       "nodeType": "VariableDeclaration",
                       "overrides": null,
-                      "scope": 82,
-                      "src": "561:28:0",
+                      "scope": 96,
+                      "src": "635:24:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule[]"
+                        "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier[]"
                       },
                       "typeName": {
                         "baseType": {
                           "contractScope": null,
-                          "id": 50,
-                          "name": "ContractRule",
+                          "id": 64,
+                          "name": "Supplier",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 756,
-                          "src": "561:12:0",
+                          "referencedDeclaration": 1047,
+                          "src": "635:8:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier"
                           }
                         },
-                        "id": 51,
+                        "id": 65,
                         "length": null,
                         "nodeType": "ArrayTypeName",
-                        "src": "561:14:0",
+                        "src": "635:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule[]"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier[]"
                         }
                       },
                       "value": null,
                       "visibility": "internal"
                     }
                   ],
-                  "id": 58,
+                  "id": 72,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 56,
-                        "name": "contractRulesLength",
+                        "id": 70,
+                        "name": "SuppliersLength",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 12,
-                        "src": "611:19:0",
+                        "src": "677:15:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1771,41 +2183,41 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 55,
+                      "id": 69,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
                       "nodeType": "NewExpression",
-                      "src": "592:18:0",
+                      "src": "662:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr_$",
-                        "typeString": "function (uint256) pure returns (struct DiscountingTypes.ContractRule memory[] memory)"
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr_$",
+                        "typeString": "function (uint256) pure returns (struct DiscountingTypes.Supplier memory[] memory)"
                       },
                       "typeName": {
                         "baseType": {
                           "contractScope": null,
-                          "id": 53,
-                          "name": "ContractRule",
+                          "id": 67,
+                          "name": "Supplier",
                           "nodeType": "UserDefinedTypeName",
-                          "referencedDeclaration": 756,
-                          "src": "596:12:0",
+                          "referencedDeclaration": 1047,
+                          "src": "666:8:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier"
                           }
                         },
-                        "id": 54,
+                        "id": 68,
                         "length": null,
                         "nodeType": "ArrayTypeName",
-                        "src": "596:14:0",
+                        "src": "666:10:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule[]"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier[]"
                         }
                       }
                     },
-                    "id": 57,
+                    "id": 71,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1813,26 +2225,26 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "592:39:0",
+                    "src": "662:31:0",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "561:70:0"
+                  "src": "635:58:0"
                 },
                 {
                   "body": {
-                    "id": 78,
+                    "id": 92,
                     "nodeType": "Block",
-                    "src": "685:53:0",
+                    "src": "747:49:0",
                     "statements": [
                       {
                         "expression": {
                           "argumentTypes": null,
-                          "id": 76,
+                          "id": 90,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1841,26 +2253,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 70,
+                              "id": 84,
                               "name": "result",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 52,
-                              "src": "699:6:0",
+                              "referencedDeclaration": 66,
+                              "src": "761:6:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                                "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                                "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                               }
                             },
-                            "id": 72,
+                            "id": 86,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 71,
+                              "id": 85,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 60,
-                              "src": "706:1:0",
+                              "referencedDeclaration": 74,
+                              "src": "768:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1871,10 +2283,10 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "699:9:0",
+                            "src": "761:9:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                              "typeString": "struct DiscountingTypes.ContractRule memory"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                              "typeString": "struct DiscountingTypes.Supplier memory"
                             }
                           },
                           "nodeType": "Assignment",
@@ -1883,26 +2295,26 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 73,
-                              "name": "contractRules",
+                              "id": 87,
+                              "name": "Suppliers",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 9,
-                              "src": "711:13:0",
+                              "src": "773:9:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ContractRule_$756_storage_$",
-                                "typeString": "mapping(uint256 => struct DiscountingTypes.ContractRule storage ref)"
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Supplier_$1047_storage_$",
+                                "typeString": "mapping(uint256 => struct DiscountingTypes.Supplier storage ref)"
                               }
                             },
-                            "id": 75,
+                            "id": 89,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 74,
+                              "id": 88,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 60,
-                              "src": "725:1:0",
+                              "referencedDeclaration": 74,
+                              "src": "783:1:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -1913,21 +2325,21 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "711:16:0",
+                            "src": "773:12:0",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ContractRule_$756_storage",
-                              "typeString": "struct DiscountingTypes.ContractRule storage ref"
+                              "typeIdentifier": "t_struct$_Supplier_$1047_storage",
+                              "typeString": "struct DiscountingTypes.Supplier storage ref"
                             }
                           },
-                          "src": "699:28:0",
+                          "src": "761:24:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ContractRule_$756_memory_ptr",
-                            "typeString": "struct DiscountingTypes.ContractRule memory"
+                            "typeIdentifier": "t_struct$_Supplier_$1047_memory_ptr",
+                            "typeString": "struct DiscountingTypes.Supplier memory"
                           }
                         },
-                        "id": 77,
+                        "id": 91,
                         "nodeType": "ExpressionStatement",
-                        "src": "699:28:0"
+                        "src": "761:24:0"
                       }
                     ]
                   },
@@ -1937,19 +2349,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 66,
+                    "id": 80,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 63,
+                      "id": 77,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 60,
-                      "src": "661:1:0",
+                      "referencedDeclaration": 74,
+                      "src": "723:1:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1961,18 +2373,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 64,
+                        "id": 78,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 52,
-                        "src": "665:6:0",
+                        "referencedDeclaration": 66,
+                        "src": "727:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                          "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                          "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                          "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                         }
                       },
-                      "id": 65,
+                      "id": 79,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1980,33 +2392,33 @@
                       "memberName": "length",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "665:13:0",
+                      "src": "727:13:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "661:17:0",
+                    "src": "723:17:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 79,
+                  "id": 93,
                   "initializationExpression": {
                     "assignments": [
-                      60
+                      74
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 60,
+                        "id": 74,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "overrides": null,
-                        "scope": 79,
-                        "src": "646:9:0",
+                        "scope": 93,
+                        "src": "708:9:0",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -2014,10 +2426,10 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 59,
+                          "id": 73,
                           "name": "uint256",
                           "nodeType": "ElementaryTypeName",
-                          "src": "646:7:0",
+                          "src": "708:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2027,18 +2439,18 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 62,
+                    "id": 76,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 61,
+                      "id": 75,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "658:1:0",
+                      "src": "720:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -2047,12 +2459,12 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "646:13:0"
+                    "src": "708:13:0"
                   },
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 68,
+                      "id": 82,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2060,15 +2472,15 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "680:3:0",
+                      "src": "742:3:0",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 67,
+                        "id": 81,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 60,
-                        "src": "680:1:0",
+                        "referencedDeclaration": 74,
+                        "src": "742:1:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2079,108 +2491,113 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 69,
+                    "id": 83,
                     "nodeType": "ExpressionStatement",
-                    "src": "680:3:0"
+                    "src": "742:3:0"
                   },
                   "nodeType": "ForStatement",
-                  "src": "641:97:0"
+                  "src": "703:93:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 80,
+                    "id": 94,
                     "name": "result",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 52,
-                    "src": "754:6:0",
+                    "referencedDeclaration": 66,
+                    "src": "812:6:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule memory[] memory"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier memory[] memory"
                     }
                   },
-                  "functionReturnParameters": 48,
-                  "id": 81,
+                  "functionReturnParameters": 62,
+                  "id": 95,
                   "nodeType": "Return",
-                  "src": "747:13:0"
+                  "src": "805:13:0"
                 }
               ]
             },
             "documentation": null,
-            "functionSelector": "2f45516c",
-            "id": 83,
+            "functionSelector": "43516832",
+            "id": 97,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getContractRules",
+            "name": "getSuppliers",
             "nodeType": "FunctionDefinition",
-            "overrides": null,
+            "overrides": {
+              "id": 58,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "589:8:0"
+            },
             "parameters": {
-              "id": 44,
+              "id": 57,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "503:2:0"
+              "src": "572:2:0"
             },
             "returnParameters": {
-              "id": 48,
+              "id": 62,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 47,
+                  "id": 61,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 83,
-                  "src": "528:21:0",
+                  "scope": 97,
+                  "src": "606:17:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct DiscountingTypes.ContractRule[]"
+                    "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct DiscountingTypes.Supplier[]"
                   },
                   "typeName": {
                     "baseType": {
                       "contractScope": null,
-                      "id": 45,
-                      "name": "ContractRule",
+                      "id": 59,
+                      "name": "Supplier",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 756,
-                      "src": "528:12:0",
+                      "referencedDeclaration": 1047,
+                      "src": "606:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ContractRule_$756_storage_ptr",
-                        "typeString": "struct DiscountingTypes.ContractRule"
+                        "typeIdentifier": "t_struct$_Supplier_$1047_storage_ptr",
+                        "typeString": "struct DiscountingTypes.Supplier"
                       }
                     },
-                    "id": 46,
+                    "id": 60,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "528:14:0",
+                    "src": "606:10:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_ContractRule_$756_storage_$dyn_storage_ptr",
-                      "typeString": "struct DiscountingTypes.ContractRule[]"
+                      "typeIdentifier": "t_array$_t_struct$_Supplier_$1047_storage_$dyn_storage_ptr",
+                      "typeString": "struct DiscountingTypes.Supplier[]"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "527:23:0"
+              "src": "605:19:0"
             },
-            "scope": 84,
-            "src": "478:289:0",
+            "scope": 98,
+            "src": "551:274:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 85,
-        "src": "94:676:0"
+        "scope": 99,
+        "src": "98:730:0"
       }
     ],
-    "src": "0:772:0"
+    "src": "0:830:0"
   },
   "compiler": {
     "name": "solc",
@@ -2188,7 +2605,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-13T04:19:29.165Z",
+  "updatedAt": "2020-12-13T06:22:52.316Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

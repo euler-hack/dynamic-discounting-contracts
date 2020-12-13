@@ -64,8 +64,8 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
     }
 
     function respondAuction(uint256 _id, uint256 _needAmount, uint256 _discountPercent) external override returns(bool) {
+        require(auctions.length > _id, "DiscounstructuretingFactory: wrong _id parameter");
         require(auctions[_id].buyer != msg.sender, "DiscountingFactory: wrong msg.sender");
-        require(auctions.length > _id, "DiscountingFactory: wrong _id parameter");
         require(auctions[_id].minPercent <= _discountPercent, "DiscountingFactory: wrong _discountPercent parameter");
         require(auctions[_id].hasAmount >= _needAmount, "DiscountingFactory: wrong _needAmount parameter");
         require(auctions[_id].signedContract == address(0), "DiscountingFactory: auction is closed");
@@ -82,12 +82,35 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
     }
 
     function executeAuction(uint256 _id) external override returns(address) {
-        ContractRule[] memory newContractRule = new ContractRule[](2);
-        newContractRule[0] = ContractRule(address(0xA39E4F82a78A0462917e58c3d0ED710be3953fd2), 100, 5);
-        newContractRule[0] = ContractRule(address(0xA56b5B7d4018A1dfcdaB09535007B44246f954B7), 59, 6);
+        require(auctions.length > _id, "DiscountingFactory: wrong _id parameter");
+        require(auctions[_id].buyer == msg.sender, "DiscountingFactory: wrong msg.sender");
+
+        // load suppliers from storage
+        Supplier[] memory newSuppliers = new Supplier[](auctionsSuppliers[_id].length);
+        for (uint256 i = 0; i < newSuppliers.length; i++) {
+            newSuppliers[i] = auctionsSuppliers[_id][i];
+        }
+
+        // sort
+        newSuppliers = sort(newSuppliers);
+
+        // filling
+        uint256 counter = 0;
+        uint256 filled = 0;
+        for (uint256 i = 0; i < newSuppliers.length; i++) {
+            filled = filled + newSuppliers[i].needAmount;
+            if (filled > auctions[_id].hasAmount) {
+                break;
+            }
+            counter++;
+        }
+        Supplier[] memory resultSuppliers = new Supplier[](counter);
+        for (uint256 i = 0; i < counter; i++) {
+            resultSuppliers[i] = newSuppliers[i];
+        }
 
         DiscountingContract resultContract = new DiscountingContract();
-        resultContract.initContract(newContractRule);
+        resultContract.initContract(resultSuppliers);
         contracts.push(resultContract);
 
         auctions[_id].signedContract =  address(resultContract);
@@ -101,9 +124,14 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
         return auctions[_id];
     }
 
-    function getContractDetails(address _contractAddress) external view override returns(ContractRule[] memory) {
-        return DiscountingContract(_contractAddress).getContractRules();
+    function getContractDetails(address _contractAddress) external view override returns(Supplier[] memory) {
+        return DiscountingContract(_contractAddress).getSuppliers();
     }
+
+    function getAuctionsCount() external view returns(uint) {
+        return auctions.length;
+    }
+
 
     //
     // no gas control methods
@@ -173,5 +201,32 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
         }
         return result;
     }
+
+    function sort(Supplier[] memory data) public view returns(Supplier[] memory) {
+       quickSort(data, int(0), int(data.length - 1));
+       return data;
+    }
+
+    function quickSort(Supplier[] memory arr, int left, int right) internal view {
+        int i = left;
+        int j = right;
+        if(i==j) return;
+        uint pivot = arr[uint(left + (right - left) / 2)].discountPercent;
+        while (i <= j) {
+            while (arr[uint(i)].discountPercent > pivot) i++;
+            while (pivot > arr[uint(j)].discountPercent) j--;
+            if (i <= j) {
+                (arr[uint(i)], arr[uint(j)]) = (arr[uint(j)], arr[uint(i)]);
+                i++;
+                j--;
+            }
+        }
+        if (left < j)
+            quickSort(arr, left, j);
+        if (i < right)
+            quickSort(arr, i, right);
+    }
+
+    
 
 }
