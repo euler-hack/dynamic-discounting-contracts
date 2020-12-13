@@ -8,6 +8,11 @@
         {
           "components": [
             {
+              "internalType": "address",
+              "name": "partner",
+              "type": "address"
+            },
+            {
               "internalType": "uint256",
               "name": "amount",
               "type": "uint256"
@@ -27,7 +32,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getContractRule\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol\":\"IDiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x7faf78da3ad2b6837852edbf2eb08b44619b7f8d135daa2d9dedace8a9accfc7\",\"urls\":[\"bzz-raw://f0985a2fd6c3ac445b932c9148585675a1487d9a1425fe2ede4d62149bacc5dc\",\"dweb:/ipfs/QmVN7fn3Qr5aFD34hFJd87M2iApotTpAW6GcseP3jHE5Zx\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol\":{\"keccak256\":\"0x2c7cf4f33068a5163b542e73960fe1ad3a5647db47098b38192dbd1621d6fde3\",\"urls\":[\"bzz-raw://580d40edfd752c386d732aba801dac4de553a85a02536256c5550c439f87e8fa\",\"dweb:/ipfs/QmNWTXZbdXg4W5C5sWQMcmmJ1XdxFzKU4mDGLFkFCZim7q\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getContractRule\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"partner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"discount\",\"type\":\"uint256\"}],\"internalType\":\"struct DiscountingTypes.ContractRule\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol\":\"IDiscountingContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol\":{\"keccak256\":\"0x6a7572a5df94ca2dd334f7c5ac80ee52f3998796b680367ac7daba186384473e\",\"urls\":[\"bzz-raw://6bca329079241c5ff6af7e614458f28d6f87291cf68c8c6abc914dda6d95111b\",\"dweb:/ipfs/QmTCCiPinHGuzJ2CaYdhGZ3XA53sTKnxWdMws5CpxQL2am\"]},\"/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol\":{\"keccak256\":\"0x2c7cf4f33068a5163b542e73960fe1ad3a5647db47098b38192dbd1621d6fde3\",\"urls\":[\"bzz-raw://580d40edfd752c386d732aba801dac4de553a85a02536256c5550c439f87e8fa\",\"dweb:/ipfs/QmNWTXZbdXg4W5C5sWQMcmmJ1XdxFzKU4mDGLFkFCZim7q\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -39,15 +44,15 @@
     "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol",
     "exportedSymbols": {
       "IDiscountingContract": [
-        634
+        764
       ]
     },
-    "id": 635,
+    "id": 765,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 624,
+        "id": 754,
         "literals": [
           "solidity",
           "^",
@@ -58,7 +63,7 @@
         "src": "0:24:3"
       },
       {
-        "id": 625,
+        "id": 755,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -69,10 +74,10 @@
       {
         "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
         "file": "./DiscountingTypes.sol",
-        "id": 626,
+        "id": 756,
         "nodeType": "ImportDirective",
-        "scope": 635,
-        "sourceUnit": 623,
+        "scope": 765,
+        "sourceUnit": 753,
         "src": "60:32:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -84,31 +89,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 627,
+              "id": 757,
               "name": "DiscountingTypes",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 622,
+              "referencedDeclaration": 752,
               "src": "128:16:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$622",
+                "typeIdentifier": "t_contract$_DiscountingTypes_$752",
                 "typeString": "contract DiscountingTypes"
               }
             },
-            "id": 628,
+            "id": 758,
             "nodeType": "InheritanceSpecifier",
             "src": "128:16:3"
           }
         ],
         "contractDependencies": [
-          622
+          752
         ],
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 634,
+        "id": 764,
         "linearizedBaseContracts": [
-          634,
-          622
+          764,
+          752
         ],
         "name": "IDiscountingContract",
         "nodeType": "ContractDefinition",
@@ -117,7 +122,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "b54f14a4",
-            "id": 633,
+            "id": 763,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -125,39 +130,39 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 629,
+              "id": 759,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "176:2:3"
             },
             "returnParameters": {
-              "id": 632,
+              "id": 762,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 631,
+                  "id": 761,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 633,
+                  "scope": 763,
                   "src": "201:19:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
+                    "typeIdentifier": "t_struct$_ContractRule_$733_memory_ptr",
                     "typeString": "struct DiscountingTypes.ContractRule"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 630,
+                    "id": 760,
                     "name": "ContractRule",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 603,
+                    "referencedDeclaration": 733,
                     "src": "201:12:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$603_storage_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$733_storage_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule"
                     }
                   },
@@ -167,14 +172,14 @@
               ],
               "src": "200:21:3"
             },
-            "scope": 634,
+            "scope": 764,
             "src": "152:70:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 635,
+        "scope": 765,
         "src": "94:131:3"
       }
     ],
@@ -184,15 +189,15 @@
     "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/IDiscountingContract.sol",
     "exportedSymbols": {
       "IDiscountingContract": [
-        634
+        764
       ]
     },
-    "id": 635,
+    "id": 765,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 624,
+        "id": 754,
         "literals": [
           "solidity",
           "^",
@@ -203,7 +208,7 @@
         "src": "0:24:3"
       },
       {
-        "id": 625,
+        "id": 755,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -214,10 +219,10 @@
       {
         "absolutePath": "/home/oem/Dropbox/WORK/freelance/dynamic-discounting-contracts/contracts/DiscountingTypes.sol",
         "file": "./DiscountingTypes.sol",
-        "id": 626,
+        "id": 756,
         "nodeType": "ImportDirective",
-        "scope": 635,
-        "sourceUnit": 623,
+        "scope": 765,
+        "sourceUnit": 753,
         "src": "60:32:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -229,31 +234,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 627,
+              "id": 757,
               "name": "DiscountingTypes",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 622,
+              "referencedDeclaration": 752,
               "src": "128:16:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DiscountingTypes_$622",
+                "typeIdentifier": "t_contract$_DiscountingTypes_$752",
                 "typeString": "contract DiscountingTypes"
               }
             },
-            "id": 628,
+            "id": 758,
             "nodeType": "InheritanceSpecifier",
             "src": "128:16:3"
           }
         ],
         "contractDependencies": [
-          622
+          752
         ],
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 634,
+        "id": 764,
         "linearizedBaseContracts": [
-          634,
-          622
+          764,
+          752
         ],
         "name": "IDiscountingContract",
         "nodeType": "ContractDefinition",
@@ -262,7 +267,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "b54f14a4",
-            "id": 633,
+            "id": 763,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -270,39 +275,39 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 629,
+              "id": 759,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "176:2:3"
             },
             "returnParameters": {
-              "id": 632,
+              "id": 762,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 631,
+                  "id": 761,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 633,
+                  "scope": 763,
                   "src": "201:19:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ContractRule_$603_memory_ptr",
+                    "typeIdentifier": "t_struct$_ContractRule_$733_memory_ptr",
                     "typeString": "struct DiscountingTypes.ContractRule"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 630,
+                    "id": 760,
                     "name": "ContractRule",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 603,
+                    "referencedDeclaration": 733,
                     "src": "201:12:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ContractRule_$603_storage_ptr",
+                      "typeIdentifier": "t_struct$_ContractRule_$733_storage_ptr",
                       "typeString": "struct DiscountingTypes.ContractRule"
                     }
                   },
@@ -312,14 +317,14 @@
               ],
               "src": "200:21:3"
             },
-            "scope": 634,
+            "scope": 764,
             "src": "152:70:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 635,
+        "scope": 765,
         "src": "94:131:3"
       }
     ],
@@ -331,7 +336,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-12T19:32:22.748Z",
+  "updatedAt": "2020-12-13T03:56:29.080Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

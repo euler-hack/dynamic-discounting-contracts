@@ -28,9 +28,9 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
     // Storage
     //
 
-    DiscountingContract[] public contracts;
-    Auction[] public auctions;
-    mapping(uint256 => Supplier[]) public auctionsSuppliers;
+    DiscountingContract[] private contracts;
+    Auction[] private auctions;
+    mapping(uint256 => Supplier[]) private auctionsSuppliers;
 
     //
     // Events
@@ -38,6 +38,7 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
 
     event CreatedAuction(uint256 indexed _id, address indexed _buyer, uint256 _hasAmount, uint256 _minPercent, uint256 _timestamp);
     event RespondAuction(uint256 indexed _id, address indexed _responder, uint256 _discountPercent , uint256 _needAmount, uint256 _timestamp);
+    event ExecutedAuction(uint256 indexed _id, address indexed _buyer, address indexed _newContractAddress);
 
     //
     // External methods
@@ -62,11 +63,11 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
         return newId;
     }
 
-    function respondAuction(uint256 _id, uint256 _discountPercent , uint256 _needAmount) external override returns(bool) {
+    function respondAuction(uint256 _id, uint256 _needAmount, uint256 _discountPercent) external override returns(bool) {
         require(auctions[_id].buyer != msg.sender, "DiscountingFactory: wrong msg.sender");
         require(auctions.length > _id, "DiscountingFactory: wrong _id parameter");
         require(auctions[_id].minPercent <= _discountPercent, "DiscountingFactory: wrong _discountPercent parameter");
-        require(auctions[_id].hasAmount <= _needAmount, "DiscountingFactory: wrong _needAmount parameter");
+        require(auctions[_id].hasAmount >= _needAmount, "DiscountingFactory: wrong _needAmount parameter");
         require(auctions[_id].signedContract == address(0), "DiscountingFactory: auction is closed");
 
         auctionsSuppliers[_id].push(Supplier({
@@ -81,16 +82,27 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
     }
 
     function executeAuction(uint256 _id) external override returns(address) {
-        auctions[_id].signedContract = address(this);
-        return address(this);
+        ContractRule[] memory newContractRule = new ContractRule[](2);
+        newContractRule[0] = ContractRule(address(0xA39E4F82a78A0462917e58c3d0ED710be3953fd2), 100, 5);
+        newContractRule[0] = ContractRule(address(0xA56b5B7d4018A1dfcdaB09535007B44246f954B7), 59, 6);
+
+        DiscountingContract resultContract = new DiscountingContract();
+        resultContract.initContract(newContractRule);
+        contracts.push(resultContract);
+
+        auctions[_id].signedContract =  address(resultContract);
+
+        emit ExecutedAuction(_id, msg.sender, address(resultContract));
+
+        return address(resultContract);
     }
 
     function getAuctionDetails(uint256 _id) external view override returns(Auction memory) {
         return auctions[_id];
     }
 
-    function getContractDetails(address _contractAddress) external view override returns(ContractRule memory) {
-        return ContractRule(123, 123);
+    function getContractDetails(address _contractAddress) external view override returns(ContractRule[] memory) {
+        return DiscountingContract(_contractAddress).getContractRules();
     }
 
     //
@@ -99,6 +111,9 @@ contract DiscountingFactory is IDiscountingFactory, Ownable {
 
     function getAuctionSuppliers(uint256 _id) external view override returns(Supplier[] memory) {
         Supplier[] memory result = new Supplier[](auctionsSuppliers[_id].length);
+        for (uint256 i = 0; i < result.length; i++) {
+            result[i] = auctionsSuppliers[_id][i];
+        }
         return result;
     }
 

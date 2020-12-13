@@ -4,6 +4,7 @@ pragma experimental ABIEncoderV2;
 interface DiscountingTypes {
 
     struct ContractRule {
+        address partner;
         uint256 amount;
         uint256 discount;
     }

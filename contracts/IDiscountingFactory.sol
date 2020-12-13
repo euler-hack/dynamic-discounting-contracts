@@ -7,13 +7,13 @@ interface IDiscountingFactory is DiscountingTypes {
 
     function createAuction(uint256 _hasAmount, uint256 _minPercent) external returns(uint256);
 
-    function respondAuction(uint256 _id, uint256 _discountPercent , uint256 _needAmount) external returns(bool);
+    function respondAuction(uint256 _id, uint256 _needAmount, uint256 _discountPercent) external returns(bool);
 
     function executeAuction(uint256 _id) external returns(address);
 
     function getAuctionDetails(uint256 _id) external view returns(Auction memory);
 
-    function getContractDetails(address _contractAddress) external view returns(ContractRule memory);
+    function getContractDetails(address _contractAddress) external view returns(ContractRule[] memory);
 
     //
     // no gas control methods
