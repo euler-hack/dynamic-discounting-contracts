@@ -74,3 +74,6 @@ npm build
 ```
 
 For external networks use ENV "`PRIVATE_KEY`".
+
+[Пример работы с контрактом](./example/web3Example.js) (представлены некоторые методы)
+
